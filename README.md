@@ -70,6 +70,7 @@ source: http://www.fao.org/faostat/en/#data/QC
 Product|Yield
 ---|---
 Apples|16 t/ha
+
 TODO: We must include the ecological price of the transportation.
 ### Results
 if there is just one crop per year for the given product, the formula above becomes:
