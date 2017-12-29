@@ -1,4 +1,4 @@
-# ecologicalprice
+# Ecological Price
 ## global
 ### sources
 quantity | value | source
@@ -34,12 +34,12 @@ Product|Energy|CO2 produced|source
 Natural gas (1 m³)|10.4 kWh|200 g/kWh|https://www.picbleu.fr
 Electricity (1 kWh)|1 kWh|592.5 g/kWh|https://carbonfund.org/how-we-calculate/
 ### results
-#### ecological price of a ton of CO2
+#### Ecological price of a ton of CO2
 We compute the price of one ton of CO2 by multiplying the footprint of one ton of CO2 by the ecological price of a global hectare:
 ```
 one_ton_CO2_ecological_price = 0.256 * $6,150 = $1,570
 ```
-#### Ecological for various human activities
+#### Ecological price for various human activities
 
 Activity|CO2 emissions|ecological price
 ---|---|---
@@ -52,6 +52,10 @@ Paris to New York round trip|1.3t|1.3 * 1570 = $2,040
 Natural gas (1kWh)|200 g|200 / 1,000,000 * 1,570 = $0.31|About $0.05
 Electricity (1kWh)|593 g|593 / 1,000,000 * 1,570 = $0.93|About $0.15
 
+#### Other
+Product|CO2|source|Ecological price
+---|---|---|---
+iPhone X (85% making, 15% using)|79 kg|Apple|79 / 1,000 * 1,570 = $120
 ## Crop products
 ### Sources
 #### Formula for computing ecological footprint and price
