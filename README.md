@@ -28,19 +28,29 @@ One kilometer on an average car (not including building the car)|650g|https://ww
 
 Note: depending on sources, CO2 emissions range anywhere from 0.6 tons (https://www.icao.int) to 1.6 tons (http://climatecare.org/calculator/) and even to more than 2 tons (https://co2.myclimate.org/). 1.3 seemed to be around the middle of the range.
 
+#### Emission for heating
+Product|Energy|CO2 produced|source
+---|---|---|---
+Natural gas (1 m³)|10.4 kWh|200 g/kWh|https://www.picbleu.fr
+Electricity (1 kWh)|1 kWh|592.5 g/kWh|https://carbonfund.org/how-we-calculate/
 ### results
 #### ecological price of a ton of CO2
 We compute the price of one ton of CO2 by multiplying the footprint of one ton of CO2 by the ecological price of a global hectare:
 ```
-0.256 * $6,150 = $1570
+one_ton_CO2_ecological_price = 0.256 * $6,150 = $1,570
 ```
 #### Ecological for various human activities
 
 Activity|CO2 emissions|ecological price
 ---|---|---
-Paris to New York round trip|1.3t|1.3 * 1570 = $2040
-1000 km by car|0.650t|0.65 * 1570 = $1020
+Paris to New York round trip|1.3t|1.3 * 1570 = $2,040
+1000 km by car|0.650t|0.65 * 1570 = $1,020
 10 km by car|0.06t|0.06 * 1570 = $10
+#### Emissions for heating
+|Product|Energy|Ecological price|Actual price (France)
+---|---|---|---
+Natural gas (1kWh)|200 g|200 / 1,000,000 * 1,570 = $0.31|About $0.05
+Electricity (1kWh)|593 g|593 / 1,000,000 * 1,570 = $0.93|About $0.15
 
 ## Crop products
 ### Sources
