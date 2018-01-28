@@ -1,0 +1,188 @@
+Rank	Country	GDP
+1	 China	21,417,150
+2	 United States	18,569,100
+3	 India	8,702,900
+4	 Japan	5,266,444
+5	 Germany	4,028,362
+6	 Russia	3,397,368
+7	 Brazil	3,141,333
+8	 Indonesia	3,032,090
+9	 United Kingdom	2,796,732
+10	 France	2,773,932
+11	 Italy	2,312,559
+12	 Mexico	2,278,072
+13	 Turkey	1,927,693
+14	 South Korea	1,832,073
+15	 Saudi Arabia	1,756,793
+16	 Spain	1,686,373
+17	 Canada	1,597,517
+18	 Iran	1,352,814
+19	 Thailand	1,164,928
+20	 Australia	1,128,908
+21	 Nigeria	1,091,228
+22	 Egypt	1,065,179
+23	 Poland	1,055,354
+24	 Pakistan	1,014,181
+25	 Netherlands	866,204
+26	 Malaysia	815,645
+27	 Philippines	741,029
+28	 South Africa	723,516
+29	 Colombia	665,594
+30	 United Arab Emirates	643,166
+31	 Algeria	582,598
+32	 Venezuela	554,329
+33	 Vietnam	552,297
+34	 Iraq	542,520
+35	 Bangladesh	536,567
+36	  Switzerland	501,653
+37	 Belgium	496,477
+38	 Singapore	471,631
+39	 Sweden	454,868
+40	 Kazakhstan	453,981
+41	 Romania	424,474
+—	 Hong Kong	414,376
+42	 Austria	411,818
+43	 Chile	400,534
+44	 Peru	389,147
+45	 Czech Republic	339,402
+46	 Ukraine	339,155
+47	 Qatar	321,418
+48	 Norway	319,401
+49	 Portugal	302,329
+50	 Israel	296,931
+51	 Greece	288,778
+52	 Kuwait	277,554
+53	 Morocco	273,358
+54	 Denmark	264,702
+55	 Ireland	253,635
+56	 Hungary	251,842
+57	 Sri Lanka	246,117
+58	 Finland	222,575
+59	 Uzbekistan	187,668
+60	 Angola	184,438
+61	 Ecuador	183,855
+62	 Oman	171,692
+63	 Azerbaijan	171,214
+64	 New Zealand	169,960
+65	 Belarus	168,009
+66	 Sudan	167,909
+67	 Ethiopia	161,571
+68	 Slovakia	156,632
+69	 Dominican Republic	149,627
+70	 Kenya	141,951
+71	 Tanzania (mainland)	138,461
+72	 Tunisia	126,598
+73	 Guatemala	125,950
+74	 Puerto Rico	125,861
+75	 Bulgaria	125,699
+76	 Ghana	115,137
+77	 Croatia	111,812
+78	 Serbia	95,698
+79	 Yemen	92,432
+80	 Libya	88,867
+81	 Turkmenistan	88,657
+82	 Panama	87,196
+83	 Jordan	82,631
+84	 Lebanon	81,547
+85	 Lithuania	80,699
+86	 Côte d'Ivoire	79,361
+87	 Costa Rica	73,931
+88	 Bolivia	73,796
+89	 Cameroon	72,896
+90	 Uruguay	72,751
+91	 Uganda	71,246
+92	   Nepal	70,090
+—	 Macau	65,383
+93	 Bahrain	64,656
+94	 Slovenia	64,229
+95	 Afghanistan	62,913
+96	 Zambia	62,458
+97	 Paraguay	62,458
+98	 Congo, Democratic Republic of the	60,482
+99	 Luxembourg	58,065
+100	 Cambodia	54,263
+101	 El Salvador	52,701
+102	 Latvia	48,049
+103	 Trinidad and Tobago	44,334
+104	 Mali	42,737
+105	 Honduras	41,057
+106	 Bosnia and Herzegovina	40,046
+107	 Laos	38,605
+108	 Estonia	36,860
+109	 Senegal	36,776
+110	 Mongolia	36,068
+111	 Botswana	35,763
+112	 Georgia	35,610
+113	 Madagascar	35,366
+114	 Gabon	34,523
+115	 Mozambique	33,177
+116	 Albania	32,663
+117	 Nicaragua	31,564
+118	 Chad	30,481
+119	 Burkina Faso	30,041
+120	 Brunei Darussalam	29,969
+121	 Congo, Republic of the	29,423
+122	 Macedonia	28,907
+123	 Zimbabwe	27,985
+124	 Cyprus	25,864
+125	 Namibia	25,606
+126	 Equatorial Guinea	25,386
+127	 Armenia	25,329
+128	 Jamaica	24,704
+129	 Mauritius	24,596
+130	 Tajikistan	23,579
+131	 Benin	22,955
+132	 South Sudan	22,829
+133	 West Bank and Gaza	22,155
+134	 Papua New Guinea	21,384
+135	 Rwanda	20,418
+136	 Kyrgyzstan	20,413
+137	 Malawi	20,359
+138	 Niger	18,975
+139	 Haiti	18,875
+140	 Moldova	17,908
+141	 Kosovo	17,454
+142	 Mauritania	15,425
+143	 Iceland	15,399
+144	 Guinea	15,213
+145	 Malta	12,500
+146	 Swaziland	10,845
+147	 Togo	10,663
+148	 Sierra Leone	10,264
+149	 Montenegro	9,638
+150	 Bahamas, The	9,233
+151	 Suriname	9,214
+152	 Burundi	8,228
+153	 Fiji	8,171
+154	 Bhutan	6,258
+155	 Guyana	5,758
+156	 Lesotho	5,585
+157	 Maldives	5,170
+158	 Barbados	4,659
+159	 Liberia	3,766
+160	 Cape Verde	3,482
+161	 Bermuda	3,409
+162	 Gambia	3,155
+163	 Belize	3,064
+164	 Central African Republic	2,927
+165	 Djibouti	2,876
+166	 Timor-Leste	2,813
+167	 Guinea-Bissau	2,680
+168	 Seychelles	2,534
+169	 Antigua and Barbuda	2,109
+170	 Saint Lucia	2,033
+171	 Grenada	1,385
+172	 Saint Kitts and Nevis	1,354
+173	 Solomon Islands	1,276
+174	 St. Vincent and the Grenadines	1,207
+175	 Samoa	1,144
+176	 Comoros	1,105
+177	 Dominica	820
+178	 Vanuatu	787
+179	 Sao Tome and Principe	594
+180	 Tonga	552
+181	 Federated States of Micronesia	348
+182	 Palau	325
+183	 Kiribati	209
+184	 Marshall Islands	202
+185	 Tuvalu	37
