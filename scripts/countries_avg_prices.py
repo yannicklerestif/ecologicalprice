@@ -1,6 +1,5 @@
 # had to remove some duplicated countries (CD, LA, MO)
-import csv
-import sys
+import re
 import countries
 import utils
 
@@ -21,7 +20,8 @@ def get_countries_gdp_nominal_by_code():
     result = {}
     countries_codes_by_name = countries.get_countries_codes_by_name()
     for row in utils.parse_csv_file('countries_gdp_nominal.csv', '\t'):
-        name = row[1].strip()
+        # removing some notes (between brackets) from the names
+        name = re.sub(r"\[.*\]", "", row[1].strip())
         found = countries_codes_by_name.get(name)
         if found is None:
             print('Warning: couldn\'t find \'{0}\' in countries nominal gdps'.format(name))
