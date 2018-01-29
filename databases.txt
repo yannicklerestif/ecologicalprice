@@ -16,10 +16,6 @@ Computing the prices of one global hectare
 - value: 12.3
 - comment (unit): gha / year]
 - sourceId: ecological footprint network
-TODO:
-* use accurate value
-* what unit should we use? should it be in the table?
-* use a table for this?
 
 countries
 ---------
@@ -39,7 +35,7 @@ countries currencies
 - id
 - name
 - source id
-
+	
 currencies exchange rates
 -------------------------
 - currency id
