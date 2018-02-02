@@ -1,5 +1,7 @@
+# Downloaded in January 2018 from:
 # https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)
 # World Bank, 2016
+# had to remove some duplicated countries (CD, LA, MO)
 Rank	Country	GDP
 1	 United States	18,569,100
 2	 China[n 5]	11,199,145

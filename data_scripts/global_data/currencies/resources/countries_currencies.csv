@@ -1,3 +1,6 @@
+# Downloaded in January 2018 from:
+# Currencies by country code:
+# https://gist.github.com/HarishChaudhari/4680482#file-country-code-to-currency-code-mapping-csv
 Country,CountryCode,Currency,Code
 New Zealand,NZ,New Zealand Dollars,NZD
 Cook Islands,CK,New Zealand Dollars,NZD

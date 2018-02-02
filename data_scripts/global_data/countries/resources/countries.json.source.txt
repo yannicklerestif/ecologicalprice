@@ -1,0 +1,3 @@
+# Downloaded in January 2018 from:
+# ISO 3166-1 alpha-2 countries list:
+# https://datahub.io/core/country-list

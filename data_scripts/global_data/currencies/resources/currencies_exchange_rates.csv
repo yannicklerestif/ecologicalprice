@@ -1,4 +1,7 @@
-# Downloaded on 2018/01/28 from http://www.xe.com/currencytables/?from=USD
+# Downloaded on 2018/01/28 from:
+# Currencies exchange rates against USD:
+# http://www.xe.com/currencytables/?from=USD
+# had to remove some duplicated countries (CD, LA, MO)
 Currency code	Currency name	Units per USD	USD per Unit
 USD	US Dollar	1.0000000000	1.0000000000
 EUR	Euro	0.8047443416	1.2426306695

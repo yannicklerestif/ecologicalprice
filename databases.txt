@@ -1,67 +1,41 @@
-sources
--------
-- id
-- name
-- reference
-- url
-- comment
-
 *************************************************************************************************
-Computing the prices of one global hectare
+Global data
 **************************************************************************
 
 1-LINE TABLE - world total biocapacity
 -----------------------
-- year: 2013
 - value: 12.3
-- comment (unit): gha / year]
-- sourceId: ecological footprint network
 
 countries
 ---------
 - code
 - name
-- source id
 
 currencies
 ----------
 - code
 - name
-- symbol?
-- source id
+- symbol
 
 countries currencies
 --------------------
 - id
 - name
-- source id
-	
+
 currencies exchange rates
 -------------------------
 - currency id
 - exchange rate (against dollar)
-- source
-- year?
 
 countries average prices (value of a universal dollar in this country in dollars). For example a value of 0.8 means that something that costs $1 in the US costs $0.8 on average in this country.
 -----------------------------
 - country id
 - average price
-- source
-- year?
-TODO:
-* not sure we'll be able to find data for the year 2013
 
 1-LINE TABLE - world PPP GDP
 ----------------------------
 - year
-- source
 - value
-
-[1-LINE TABLE - number of individuals that earn money
-----------------------------------------------------
-used to calculate "individual" prices
-TODO: maybe not in V1.]
 
 
 *************************************************************************************************
@@ -71,14 +45,12 @@ Computing prices in global hectares
 1-LINE TABLE - footprint of CO2 emissions
 -----------------------------------------
 - ecological footprint of 1 ton of CO2, in gha / year
-- sourceId (ecological footprint network)
 
 Carbon Objects
 --------------
 - id
 - name
 - cost in CO2 of the object
-- source
 
 1-LINE TABLE - equivalent factor for crop hectares
 --------------------------------------------------
@@ -129,6 +101,6 @@ GET /country/list => {id: number, name: string, averagePrice: number, currencyI
 
 GET /currency/list => {id: number, name: string, exchangeRate: number}[]
 
-On the front end side, the gha price is computed using following formula: 
+On the front end side, the gha price is computed using following formula:
 	ghaPrice = worldPPPGDP / worldBioCapacity * countryAveragePrices
 Then, ghaPrice is converted into the display currency.
