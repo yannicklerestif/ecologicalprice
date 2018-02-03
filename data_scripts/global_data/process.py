@@ -5,6 +5,7 @@ from io import TextIOWrapper
 from global_data.countries import countries
 from global_data.currencies import currencies
 from global_data.countries_avg_prices import countries_avg_prices
+from global_data.other import other
 
 first_header = True
 
@@ -26,6 +27,11 @@ def process():
     write_header(output, 'Avg prices')
     append_ddl_file(output, 'countries_avg_prices/ddl/country_avg_prices_ddl.sql')
     utils.print_list_to_file(countries_avg_prices.get_avg_prices_sql(), output)
+
+    # Other
+    write_header(output, 'Other')
+    append_ddl_file(output, 'other/ddl/other_ddl.sql')
+    utils.print_list_to_file(other.get_other_sql(), output)
 
 
 def write_header(file: TextIOWrapper, header_name: str):

@@ -28,7 +28,7 @@ def get_countries_codes_by_name() -> Dict[str, str]:
 def get_countries_sql() -> List[str]:
     result: List[str] = []
     for (code, name) in get_countries_names_by_code().items():
-        result.append("insert into country (code, name) "
+        result.append("insert into g_country (code, name) "
                       "values ('{0}', '{1}');"
                       .format(code, utils.escape_simple_quotes(name)))
     return result

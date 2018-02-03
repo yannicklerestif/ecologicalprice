@@ -46,21 +46,26 @@ Computing prices in global hectares
 -----------------------------------------
 - ecological footprint of 1 ton of CO2, in gha / year
 
-Carbon Objects
---------------
-- id
-- name
-- cost in CO2 of the object
-
 1-LINE TABLE - equivalent factor for crop hectares
 --------------------------------------------------
 - equivalent factor for one crop hectare
 - sourceId
 
+Objects
+-------
+- id
+- name
+- type
+
+Carbon Objects
+--------------
+- id
+- cost in CO2 of the object
+- source
+
 Crop Objects
 ------------
 - id
-- name
 - yield
 - crop intensity
 - source
@@ -68,9 +73,20 @@ Crop Objects
 Livestock objects
 -----------------
 - id
-- name
 - total produced
 - total ecological footprint
+- source
+
+Compound objects
+----------------
+- id
+- source
+
+Compound objects link
+---------------------
+- parent_id
+- child_id
+- quantity
 - source
 
 *************************************************************************
@@ -80,9 +96,7 @@ pre-computed tables
 objects ecological footprint
 ----------------------------
 - id
-- name
 - ecological footprint
-- object type
 Note: computed depending on the type of the object
 
 **************************************************************************

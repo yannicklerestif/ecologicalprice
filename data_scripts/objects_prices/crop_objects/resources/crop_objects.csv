@@ -1,0 +1,25 @@
+# Downloaded in February 2018 from:
+# Crop objects yields - 2013
+# http://www.fao.org/faostat/en/#data/QC
+# modified some of the names
+Domain Code,Domain,Area Code,Area,Element Code,Element,Item Code,Item,Year Code,Year,Unit,Value,Flag,Flag Description
+"QC","Crops","5000","World","5419","Yield","221","Almonds, with shell","2013","2013","hg/ha","15579","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","515","Apples","2013","2013","hg/ha","160488","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","572","Avocados","2013","2013","hg/ha","92223","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","486","Bananas","2013","2013","hg/ha","209067","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","426","Carrots","2013","2013","hg/ha","333171","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","399","Eggplants","2013","2013","hg/ha","263637","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","560","Grapes","2013","2013","hg/ha","107957","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","225","Hazelnuts, with shell","2013","2013","hg/ha","13727","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","497","Lemons","2013","2013","hg/ha","153704","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","201","Lentils","2013","2013","hg/ha","12800","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","372","Lettuce and chicory","2013","2013","hg/ha","215200","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","449","Mushrooms and truffles","2013","2013","hg/ha","3774999","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","260","Olives","2013","2013","hg/ha","21428","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","490","Oranges","2013","2013","hg/ha","177859","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","534","Peaches and nectarines","2013","2013","hg/ha","140095","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","521","Pears","2013","2013","hg/ha","159092","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","116","Potatoes","2013","2013","hg/ha","193564","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","92","Quinoa","2013","2013","hg/ha","6046","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","27","Rice","2013","2013","hg/ha","45097","Fc","Calculated data"
+"QC","Crops","5000","World","5419","Yield","388","Tomatoes","2013","2013","hg/ha","341475","Fc","Calculated data"
