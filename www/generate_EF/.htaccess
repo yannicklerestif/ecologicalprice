@@ -1,0 +1,5 @@
+AuthUserFile /home/ecologicur/www/generate_EF/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Restricted access"
+AuthType Basic
+require valid-user

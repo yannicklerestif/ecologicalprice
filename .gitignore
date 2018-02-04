@@ -2,3 +2,5 @@
 __pycache__
 dist
 www/mysql_password
+/www/generate_EF/.htpasswd
+/data_scripts/objects_efs/admin_password

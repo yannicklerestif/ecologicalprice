@@ -1,13 +1,6 @@
-import requests
 from typing import List, Dict
 from objects_efs.object_ef import ObjectEf
-
-SITE_ROOT = 'https://ecologicalprice.org/generate_EF/'
-
-
-def _get_objects_data():
-    r = requests.get(SITE_ROOT + 'download_objects_data.php')
-    return r.json()
+from objects_efs import generate_compound_objects_efs
 
 
 def _get_eqf(eqfs, type):
@@ -62,10 +55,34 @@ def _get_livestock_objects_efs(livestock_objects) -> List[ObjectEf]:
     return result
 
 
+def _get_compound_objects_efs(non_compound_objects_efs: List[ObjectEf],
+                              compound_objects_links) -> List[ObjectEf]:
+    compound_objects_ef_by_id = \
+        generate_compound_objects_efs.get_compound_objects_efs(
+            non_compound_objects_efs,
+            compound_objects_links)
+    result = []
+    for (object_id, ef) in compound_objects_ef_by_id.items():
+        result.append(ObjectEf(object_id, ef))
+    return result
+
+
 # --------------------------------------------------------------------
 
-def process():
-    objects_data = _get_objects_data()
+def _pretty_print(objects, objects_efs: List[ObjectEf]):
+    objects_by_id: Dict[int, any] = {}
+    for object_ in objects:
+        objects_by_id[object_['id']] = object_
+    for object_ef in objects_efs:
+        object_ = objects_by_id[object_ef.object_id]
+        print(f'{object_["name"]:40}'
+              f'{object_ef.object_id:8}'
+              f'{object_["object_type"]:4}'
+              f'{(float(object_ef.ef)*6150):15,.2f}')
+
+
+def get_objects_efs(objects_data):
+    # getting all non-compound objects
     co2_objects_efs = _get_co2_objects_efs(
         objects_data['p_CO2_ecological_footprint'][0]['value'],
         objects_data['p_CO2_object'])
@@ -74,20 +91,13 @@ def process():
         objects_data['p_crop_object'])
     livestock_objects_efs = _get_livestock_objects_efs(
         objects_data['p_livestock_object'])
-    _pretty_print(objects_data['p_object'],
-                  co2_objects_efs
-                  + crop_objects_efs
-                  + livestock_objects_efs)
 
+    # getting compound objects
+    non_compound_objects_efs = co2_objects_efs + crop_objects_efs + livestock_objects_efs
+    compound_object_efs = _get_compound_objects_efs(
+        non_compound_objects_efs,
+        objects_data['p_compound_object_link'])
 
-def _pretty_print(objects, objects_efs: List[ObjectEf]):
-    objects_by_id: Dict[int, any] = {}
-    for object_ in objects:
-        objects_by_id[object_['id']] = object_
-    for object_ef in objects_efs:
-        object_ = objects_by_id[object_ef.object_id]
-        print(f'{object_["name"]:40}{object_["object_type"]:2}{(float(object_ef.ef)*6150):15,.3f}')
-
-
-if __name__ == '__main__':
-    process()
+    result = non_compound_objects_efs + compound_object_efs
+    _pretty_print(objects_data['p_object'], result)
+    return result
