@@ -3,6 +3,7 @@ from typing import List
 
 CROP_TYPE: int = 1
 
+
 class CropObject:
     id: int
     fao_code: str

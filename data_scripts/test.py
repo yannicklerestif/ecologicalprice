@@ -1,8 +1,11 @@
+from typing import List, Dict
+
+
 def test():
-    def inner(x: int) -> int:
-        return x * 2
-    result = map(inner, range(0, 10))
-    print(list(result))
+    some_var: Dict[str, List[str]] = {'test': ['a', 'b']}
+    some_list = some_var['test']
+    some_list.append('c')
+    print(some_var)
 
 
 if __name__ == '__main__':

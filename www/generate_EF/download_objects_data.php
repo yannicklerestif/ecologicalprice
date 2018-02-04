@@ -17,6 +17,8 @@ print(json_encode([
     'p_livestock_object' => execute_query($pdo,
         'select object_id, total_produced, total_ecological_footprint, retail_cut_percent from p_livestock_object'),
     'p_compound_object_link' => execute_query($pdo,
-        'select object_id, parent_id, quantity from p_compound_object_link')
+        'select object_id, parent_id, quantity from p_compound_object_link'),
+    'p_object' => execute_query($pdo,
+        'select id, name, object_type from p_object')
 ]));
 
