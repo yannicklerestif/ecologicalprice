@@ -1,0 +1,4 @@
+<files mysql_password>
+order allow,deny
+deny from all
+</files>
