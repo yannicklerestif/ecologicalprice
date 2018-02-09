@@ -1,6 +1,6 @@
 import utils
 
-SITE_ROOT = 'https://ecologicalprice.org/generate_EF'
+SITE_ROOT = 'https://ecologicalprice.org/api/generate_EF'
 
 
 class ObjectEf:

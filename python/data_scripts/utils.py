@@ -18,7 +18,7 @@ def parse_csv_file(file_name, relative_to, delimiter):
             row = next(reader)
             if not (row[0].startswith('#')):
                 break
-        result = []
+        result: List[str] = []
         for row in reader:
             result.append(row)
     return result

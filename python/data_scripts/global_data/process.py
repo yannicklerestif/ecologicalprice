@@ -1,7 +1,6 @@
-import os
-import utils
-from typing import List
 from io import TextIOWrapper
+import datetime
+import utils
 from global_data.countries import countries
 from global_data.currencies import currencies
 from global_data.countries_avg_prices import countries_avg_prices
@@ -12,6 +11,8 @@ first_header = True
 
 def process():
     output: TextIOWrapper = utils.open_dist_file('global.sql')
+
+    write_header(output, f'Generated at {str(datetime.datetime.now())}')
 
     # Countries
     write_header(output, 'Countries')

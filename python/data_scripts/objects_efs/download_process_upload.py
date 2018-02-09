@@ -10,6 +10,7 @@ def _get_objects_data():
     admin_password = object_ef.get_admin_password()
     r = requests.get(f'{SITE_ROOT}/download_objects_data.php',
                      auth=HTTPBasicAuth(admin_name, admin_password))
+    print(r.text)
     return r.json()
 
 
