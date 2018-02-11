@@ -9,7 +9,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 
-import { CountryService } from "./services/country.service";
+import { CountryService } from './services/country.service';
 import { AppComponent } from './app.component';
 import { PricesComponent } from './components/prices/prices.component';
 import { DetailsComponent } from './components/details/details.component';
@@ -38,10 +38,7 @@ import { states, uiRouterConfigFn } from './states';
     MatButtonModule,
     MatTabsModule,
   ],
-  providers: [
-    CountryService
-  ],
-  bootstrap: [AppComponent]
+  providers: [CountryService],
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

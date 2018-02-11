@@ -8,7 +8,8 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"{e2e,src/app}/**/*.ts\""
   },
   "private": true,
   "dependencies": {

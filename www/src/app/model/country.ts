@@ -1,4 +1,3 @@
 export class Country {
-  constructor(private code, private name, private defaultCurrencyCode) {
-  }
+  constructor(private code, private name, private defaultCurrencyCode) {}
 }
