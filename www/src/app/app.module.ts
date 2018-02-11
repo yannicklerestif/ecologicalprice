@@ -1,15 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { UIRouterModule } from '@uirouter/angular';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { CountryService } from "./services/country.service";
 import { AppComponent } from './app.component';
 import { PricesComponent } from './components/prices/prices.component';
 import { DetailsComponent } from './components/details/details.component';
 
-import { detailsState, pricesState} from './states';
+import { states } from './states';
 
 @NgModule({
   declarations: [
@@ -19,11 +24,16 @@ import { detailsState, pricesState} from './states';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     UIRouterModule.forRoot({
-      states: [ detailsState, pricesState ], // FIXME set up
+      states: states,
       useHash: true,
     }),
-    MatToolbarModule
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatButtonToggleModule,
+    MatButtonModule,
+    MatTabsModule,
   ],
   providers: [
     CountryService

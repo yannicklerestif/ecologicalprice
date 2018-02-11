@@ -10,6 +10,16 @@
 
 html, body {
   margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+//a {
+//  color: inherit;
+//  font: inherit;
+//  text-decoration: inherit;
+//}
+
+.white-button-overlay .mat-button-focus-overlay {
+  background-color: rgba(mat-color(map-get($my-theme, background), background), 0.2) !important;
+}
 
