@@ -13,14 +13,16 @@ import { CountryService } from "./services/country.service";
 import { AppComponent } from './app.component';
 import { PricesComponent } from './components/prices/prices.component';
 import { DetailsComponent } from './components/details/details.component';
+import { ViewportForwarderComponent } from './components/viewport-forwarder/viewport-forwarder.component';
 
-import { states } from './states';
+import { states, uiRouterConfigFn } from './states';
 
 @NgModule({
   declarations: [
     AppComponent,
     PricesComponent,
-    DetailsComponent
+    DetailsComponent,
+    ViewportForwarderComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,7 @@ import { states } from './states';
     UIRouterModule.forRoot({
       states: states,
       useHash: true,
+      config: uiRouterConfigFn,
     }),
     FlexLayoutModule,
     MatToolbarModule,
