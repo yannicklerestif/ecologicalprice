@@ -1,23 +1,20 @@
 @import '~@angular/material/theming';
 @import '../../../my-theme';
 
-.fixed-header {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0px;
-  left: 0px;
-  z-index: 2;
+.header {
   background-color: mat-color(map-get($my-theme, primary));
   width: 100% !important;
-  padding: 10px;
+  // trick - see below
+  padding: 0px 10px 10px 10px;
+}
+
+// trick - the goal is to add some padding to header subsections, but only on the second line if there is one
+.header-nav-inner-element {
+  margin-top: 10px;
 }
 
 .filler {
   flex: 1;
-}
-
-mat-select, .mat-select-placeholder, .mat-select-trigger {
-  color:white !important;
 }
 
 a {

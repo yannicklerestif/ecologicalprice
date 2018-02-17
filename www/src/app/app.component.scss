@@ -1,1 +1,7 @@
-
+.fixed-header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+}

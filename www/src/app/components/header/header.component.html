@@ -1,13 +1,13 @@
-<div class="fixed-header" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
-  <div fxLayout="row" fxLayoutGap="10px">
+<div class="header inverted-text-colors" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
+  <div class="header-nav-inner-element" fxLayout="row" fxLayoutGap="10px">
     <a class="white-button-overlay" mat-button [disableRipple]="true"
-       uiSref="root.prices" uiSrefActive="active">Prices</a>
+       uiSref="root.prices.summary" uiSrefActive="active">Prices</a>
     <a class="white-button-overlay" mat-button [disableRipple]="true"
-       uiSref="root.details" uiSrefActive="active">Details</a>
+       uiSref="root.prices.details" uiSrefActive="active">Details</a>
   </div>
   <span class="filler"></span>
-  <div fxLayout="row" fxLayoutGap="10px">
-    <mat-form-field>
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <mat-form-field class="header-nav-inner-element">
       <mat-select placeholder="Country" mat-color="secondary" [value]="selectedCountryCode"
         (selectionChange)="countryChanged($event)">
         <mat-option *ngFor="let country of countries" [value]="country.code">
