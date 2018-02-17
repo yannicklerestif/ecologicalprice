@@ -7,7 +7,7 @@
   </div>
   <span class="filler"></span>
   <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
-    <mat-form-field class="header-nav-inner-element">
+    <mat-form-field id="country-select" class="header-nav-inner-element">
       <mat-select placeholder="Country" mat-color="secondary" [value]="selectedCountryCode"
         (selectionChange)="countryChanged($event)">
         <mat-option *ngFor="let country of countries" [value]="country.code">

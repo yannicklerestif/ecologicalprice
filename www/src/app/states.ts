@@ -28,7 +28,7 @@ export const states: Ng2StateDeclaration[] = [
         token: 'countries',
         deps: [CountryService],
         resolveFn: (countryService: CountryService) => {
-          countryService.load();
+          return countryService.load();
         },
       },
     ],

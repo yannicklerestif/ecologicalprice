@@ -25,7 +25,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private selectedCountrySubscription: Subscription;
 
   ngOnInit() {
-    this.countries = this.countryService.getCountries();
+    this.countries = this.countryService
+      .getCountries()
+      .sort((a: Country, b: Country) => a.name.localeCompare(b.name));
 
     this.selectedCountrySubscription = this.countryService
       .getSelectedCountryCode()

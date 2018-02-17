@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UIRouterModule } from '@uirouter/angular';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -18,6 +19,8 @@ import { ViewportForwarderComponent } from './components/viewport-forwarder/view
 
 import { states, uiRouterConfigFn } from './states';
 import { HeaderComponent } from './components/header/header.component';
+import { APIInterceptor } from './services/api-interceptor.service';
+import { CountryRepositoryService } from './services/country-repository.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     UIRouterModule.forRoot({
       states: states,
       useHash: true,
@@ -42,7 +46,15 @@ import { HeaderComponent } from './components/header/header.component';
     MatSelectModule,
     MatTabsModule,
   ],
-  providers: [CountryService],
+  providers: [
+    CountryService,
+    CountryRepositoryService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: APIInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

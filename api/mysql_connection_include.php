@@ -7,7 +7,7 @@ function create_pdo () {
     if ($mysql_password == false)
         throw new Exception('password file couldn\'t be found');
     $pdo = new PDO(
-        'mysql:host=ecologicur0.mysql.db;dbname=ecologicur0',
+        'mysql:host=ecologicur0.mysql.db;dbname=ecologicur0;charset=utf8',
         'ecologicur0',
         $mysql_password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);

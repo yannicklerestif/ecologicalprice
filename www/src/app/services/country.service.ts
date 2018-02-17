@@ -3,6 +3,7 @@ import { Subject } from 'rxjs/Subject';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 import { Country } from '../model/country';
+import { CountryRepositoryService } from './country-repository.service';
 
 @Injectable()
 export class CountryService {
@@ -14,19 +15,22 @@ export class CountryService {
 
   public isLoaded = false;
 
-  constructor() {}
+  constructor(private countryRepositoryService: CountryRepositoryService) {}
 
-  public load() {
-    console.log('loading country service');
+  public async load(): Promise<void> {
+    const countriesArray = await this.countryRepositoryService.fetchCountries();
+    const countries: { [code: string]: Country } = {};
+    countriesArray.forEach(country => (countries[country.code] = country));
+    this.countries = countries;
 
-    // FIXME get that from the server
-    this.countries = {
-      AAA: new Country('AAA', 'test AAA', 'USD'),
-      BBB: new Country('BBB', 'test BBB', 'EUR'),
-    };
-
-    // // FIXME replace with getting the country from the user's IP / geolocation
-    this.userCountryCode = Object.keys(this.countries)[0];
+    let userCountryCode;
+    try {
+      userCountryCode = await this.countryRepositoryService.fetchUserCountry();
+    } catch (e) {
+      console.error('error fetching user country', e);
+    }
+    if (!this.isValidCountryCode(userCountryCode)) userCountryCode = 'US';
+    this.userCountryCode = userCountryCode;
 
     this.isLoaded = true;
   }

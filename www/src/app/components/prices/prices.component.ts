@@ -11,6 +11,5 @@ export class PricesComponent implements OnInit {
 
   ngOnInit() {
     console.log('init prices component');
-    console.log(this.stateService.$current);
   }
 }

@@ -3,7 +3,6 @@ ini_set('display_errors',1);
 header('Content-Type: application/json; charset=utf-8');
 require '../mysql_connection_include.php';
 $pdo = create_pdo();
-$result = array();
 
 print(json_encode([
     'p_CO2_object' => execute_query($pdo,
