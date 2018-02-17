@@ -75,7 +75,10 @@ export function currencyResolveFn(
   }
   let autoCurrencyCode = currencyService.AUTO_CURRENCY_CODE;
   const stateName = transition.targetState().name();
-  return stateService.go(stateName, { currency: autoCurrencyCode });
+  // for some reason the country is not remembered, we have to pass it explicitely
+  const params = Object.assign({}, transition.params());
+  params.currency = autoCurrencyCode;
+  return stateService.go(stateName, params);
 }
 
 export const states: Ng2StateDeclaration[] = [

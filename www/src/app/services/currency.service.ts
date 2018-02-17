@@ -9,11 +9,14 @@ export class CurrencyService {
 
   public AUTO_CURRENCY_CODE: string = 'AUTO';
 
+  private isLoaded = false;
+
   private currencies: { [code: string]: Currency } = {};
 
   private selectedCurrencyCode: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
   async load(): Promise<void> {
+    if (this.isLoaded === true) return;
     const currenciesArray = await this.currencyRepositoryService.fetchCurrencies();
     const currencies: { [code: string]: Currency } = {};
     currenciesArray.forEach(currency => (currencies[currency.code] = currency));

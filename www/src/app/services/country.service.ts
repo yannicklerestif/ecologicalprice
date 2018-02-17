@@ -21,6 +21,7 @@ export class CountryService {
   constructor(private countryRepositoryService: CountryRepositoryService) {}
 
   public async load(): Promise<void> {
+    if (this.isLoaded === true) return;
     const countriesArray = await this.countryRepositoryService.fetchCountries();
     const countries: { [code: string]: Country } = {};
     countriesArray.forEach(country => (countries[country.code] = country));

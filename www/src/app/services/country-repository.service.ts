@@ -7,9 +7,7 @@ export class CountryRepositoryService {
   constructor(private httpClient: HttpClient) {}
 
   public async fetchCountries(): Promise<Country[]> {
-    const response = await this.httpClient
-      .get('api/download_countries.php')
-      .toPromise();
+    const response = await this.httpClient.get('api/download_countries.php').toPromise();
     return (response as any[]).map(
       rawCountry =>
         new Country(
@@ -22,8 +20,7 @@ export class CountryRepositoryService {
   }
 
   public async fetchUserCountry(): Promise<string> {
-    return (await this.httpClient
-      .get('api/get_user_country.php')
-      .toPromise()) as string;
+    const userCountry = await this.httpClient.get('api/get_user_country.php').toPromise();
+    return userCountry as string;
   }
 }
