@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from '@uirouter/core';
 
 @Component({
   selector: 'app-prices',
@@ -6,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./prices.component.scss'],
 })
 export class PricesComponent implements OnInit {
-  constructor() {}
+  constructor(private stateService: StateService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('init prices component');
+    console.log(this.stateService.$current);
+  }
 }

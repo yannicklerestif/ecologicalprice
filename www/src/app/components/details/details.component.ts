@@ -8,5 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DetailsComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('init details component');
+  }
 }

@@ -1,0 +1,29 @@
+@import '~@angular/material/theming';
+@import '../../../my-theme';
+
+.fixed-header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  background-color: mat-color(map-get($my-theme, primary));
+  width: 100% !important;
+  padding: 10px;
+}
+
+.filler {
+  flex: 1;
+}
+
+mat-select, .mat-select-placeholder, .mat-select-trigger {
+  color:white !important;
+}
+
+a {
+  font-size: 14px;
+  color: mat-color(map-get($my-theme, background), background);
+  &.active {
+    background-color: mat-color(map-get($my-theme, primary), 400);
+  }
+}

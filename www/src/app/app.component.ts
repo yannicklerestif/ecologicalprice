@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Transition, TransitionService } from '@uirouter/core';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'app';
+
+  constructor(private transitionService: TransitionService) {}
 
   ngOnInit() {}
 }

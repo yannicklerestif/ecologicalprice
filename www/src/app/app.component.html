@@ -1,15 +1,5 @@
-<div class="fixed-header" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
-  <div fxLayout="row" fxLayoutGap="10px">
-    <a class="white-button-overlay" mat-button [disableRipple]="true"
-       uiSref="root.prices" uiSrefActive="active">Prices</a>
-    <a class="white-button-overlay" mat-button [disableRipple]="true"
-       uiSref="root.details" uiSrefActive="active">Details</a>
-  </div>
-  <span class="filler"></span>
-  <div fxLayout="row" fxLayoutGap="10px">
-    <div>SOME DIV</div>
-    <div>SOME OTHER DIV</div>
-  </div>
+<div>
+  <ui-view name = "header"></ui-view>
 </div>
 
 <div>

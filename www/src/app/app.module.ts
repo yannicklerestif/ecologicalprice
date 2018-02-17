@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
 
 import { CountryService } from './services/country.service';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { ViewportForwarderComponent } from './components/viewport-forwarder/viewport-forwarder.component';
 
 import { states, uiRouterConfigFn } from './states';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { states, uiRouterConfigFn } from './states';
     PricesComponent,
     DetailsComponent,
     ViewportForwarderComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { states, uiRouterConfigFn } from './states';
     MatToolbarModule,
     MatButtonToggleModule,
     MatButtonModule,
+    MatSelectModule,
     MatTabsModule,
   ],
   providers: [CountryService],
