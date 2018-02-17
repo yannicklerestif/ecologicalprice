@@ -9,12 +9,19 @@
   <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
     <mat-form-field id="country-select" class="header-nav-inner-element">
       <mat-select placeholder="Country" mat-color="secondary" [value]="selectedCountryCode"
-        (selectionChange)="countryChanged($event)">
+                  (selectionChange)="countryChanged($event)">
         <mat-option *ngFor="let country of countries" [value]="country.code">
           {{ country.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <div>SOME OTHER DIV</div>
+    <mat-form-field id="currency-select" class="header-nav-inner-element">
+      <mat-select placeholder="Currency" mat-color="secondary" [value]="selectedCurrencyCodeOrAuto"
+                  (selectionChange)="currencyChanged($event)">
+        <mat-option *ngFor="let currency of currencies" [value]="currency.code">
+          {{ currency.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 </div>

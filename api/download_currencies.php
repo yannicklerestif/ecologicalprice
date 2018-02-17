@@ -11,8 +11,7 @@ require './mysql_connection_include.php';
 $pdo = create_pdo();
 
 print(json_encode(execute_query($pdo,
-    // joining on currencies to make sure all countries have a currency
-    'SELECT c.code, c.name, cap.country_avg_prices, cc.currency_code
-    FROM g_country c, g_country_avg_prices cap, g_country_currency cc, g_currency cur
-    WHERE c.code = cap.country_code AND c.code = cc.country_code AND cur.code = cc.currency_code'
+    'SELECT c.code, c. name, c.symbol, cer.units_per_USD
+    FROM g_currency c, g_currency_exchange_rate cer
+    WHERE c.code = cer.currency_code'
 )));

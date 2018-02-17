@@ -21,6 +21,8 @@ import { states, uiRouterConfigFn } from './states';
 import { HeaderComponent } from './components/header/header.component';
 import { APIInterceptor } from './services/api-interceptor.service';
 import { CountryRepositoryService } from './services/country-repository.service';
+import { CurrencyService } from './services/currency.service';
+import { CurrencyRepositoryService } from './services/currency-repository.service';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { CountryRepositoryService } from './services/country-repository.service'
   providers: [
     CountryService,
     CountryRepositoryService,
+    CurrencyService,
+    CurrencyRepositoryService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: APIInterceptor,

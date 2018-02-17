@@ -9,8 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write \"{e2e,src/app}/**/*.ts\"",
-    "prettier-files": "prettier --single-quote --trailing-comma es5 --write"
+    "prettier": "prettier --single-quote --trailing-comma es5 --write --print-width 100\"{e2e,src/app}/**/*.ts\"",
+    "prettier-files": "prettier --single-quote --trailing-comma es5 --write --print-width 100"
   },
   "private": true,
   "dependencies": {
