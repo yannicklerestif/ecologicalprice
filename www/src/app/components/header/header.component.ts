@@ -73,7 +73,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       });
 
     const getSelectedCurrencyCodeFromTransition = (transition: Transition) => {
-      let currencyCodeOrAuto = transition.targetState().params()['currency'];
+      let currencyCodeOrAuto = transition.params('to').currency;
       this.selectedCurrencyCodeOrAuto = currencyCodeOrAuto;
     };
 
@@ -94,12 +94,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public countryChanged($event: MatSelectChange) {
     let countryCode: string = $event.value;
-    this.stateService.go(
-      this.stateService.$current.name,
-      // TODO for some reason we have to pass the currency, even though it should be
-      // TODO inherited from the current state
-      { country: countryCode, currency: this.selectedCurrencyCodeOrAuto }
-    );
+    // for some reason we have to pass the currency, even though it should be
+    // inherited from the current state
+    const params = Object.assign({}, this.stateService.params);
+    params.country = countryCode;
+    this.stateService.go(this.stateService.$current.name, params);
   }
 
   public currencyChanged($event: MatSelectChange) {

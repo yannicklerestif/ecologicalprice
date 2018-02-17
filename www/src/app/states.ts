@@ -74,11 +74,8 @@ export function currencyResolveFn(
     return;
   }
   let autoCurrencyCode = currencyService.AUTO_CURRENCY_CODE;
-  const redirectState = transition
-    .targetState()
-    .withParams({ currency: autoCurrencyCode })
-    .withOptions({ location: true });
-  return stateService.go(redirectState.name(), redirectState.params(), redirectState.options());
+  const stateName = transition.targetState().name();
+  return stateService.go(stateName, { currency: autoCurrencyCode });
 }
 
 export const states: Ng2StateDeclaration[] = [
