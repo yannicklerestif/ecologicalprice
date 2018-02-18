@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UIRouterModule } from '@uirouter/angular';
+import { CurrencyPipe } from '@angular/common';
 
 // angular material
 import { FlexLayoutModule } from '@angular/flex-layout';
