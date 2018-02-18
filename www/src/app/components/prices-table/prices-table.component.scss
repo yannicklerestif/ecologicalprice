@@ -4,3 +4,11 @@
 .mat-header-row {
   background-color: mat-color(map-get($my-theme, primary), 50);;
 }
+
+.mat-column-objectName {
+  flex: 60%;
+}
+
+.mat-column-objectPrice {
+  flex: 40%;
+}
