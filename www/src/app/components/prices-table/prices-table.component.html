@@ -2,7 +2,13 @@
 
   <ng-container matColumnDef="objectName">
     <mat-header-cell *matHeaderCellDef> Object </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    <mat-cell *matCellDef="let element">
+      <div fxLayout="row nowrap">
+        <div>{{element.name}}</div>
+        <!-- spacer between columns -->
+        <div fxFlex="20px"></div>
+      </div>
+    </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="objectPrice">
