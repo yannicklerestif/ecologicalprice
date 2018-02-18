@@ -31,4 +31,8 @@ a {
   &.active {
     background-color: mat-color(map-get($my-theme, primary), 400);
   }
+  &#home-button {
+    min-width: 0;
+  }
 }
+

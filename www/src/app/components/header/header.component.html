@@ -1,5 +1,7 @@
 <div class="header inverted-text-colors" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
   <div class="header-nav-inner-element" fxLayout="row" fxLayoutGap="10px">
+    <a id="home-button" class="white-button-overlay" mat-button [disableRipple]="true"
+       uiSref="root.prices.home" uiSrefActive="active"><mat-icon>home</mat-icon></a>
     <a class="white-button-overlay" mat-button [disableRipple]="true"
        uiSref="root.prices.summary" uiSrefActive="active">Prices</a>
     <a class="white-button-overlay" mat-button [disableRipple]="true"

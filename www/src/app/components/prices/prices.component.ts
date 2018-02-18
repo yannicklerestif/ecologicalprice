@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { StateService } from '@uirouter/core';
 import { CurrencyService } from '../../services/currency.service';
 import { CountryService } from '../../services/country.service';
-import { Currency } from '../../model/currency';
-import { Country } from '../../model/country';
+import { PricedObject } from '../prices-table/priced-object';
+import { ObjectService } from '../../services/object/object.service';
+import { EpObject } from '../../model/ep-object';
+import { PricerService } from '../../services/pricer.service';
+import { Price } from '../../model/price';
+import { ObjectType } from '../../model/object-type';
 
 @Component({
   selector: 'app-prices',
@@ -11,22 +14,57 @@ import { Country } from '../../model/country';
   styleUrls: ['./prices.component.scss'],
 })
 export class PricesComponent implements OnInit {
-  public selectedCountry: Country;
+  public selectedCountryName: string;
 
-  public selectedCurrency: Currency;
+  public selectedCurrencyName: string;
+
+  private pricedObjects: { [objectType: number]: PricedObject[] };
 
   constructor(
-    private stateService: StateService,
     private countryService: CountryService,
-    private currencyService: CurrencyService
+    private currencyService: CurrencyService,
+    private objectService: ObjectService,
+    private pricerService: PricerService
   ) {}
 
   ngOnInit() {
-    this.selectedCountry = this.countryService.getCountry(
+    const selectedCountry = this.countryService.getCountry(
       this.countryService.getSelectedCountryCode().getValue()
     );
-    this.selectedCurrency = this.currencyService.getCurrency(
+    this.selectedCountryName = selectedCountry.name;
+    const selectedCurrency = this.currencyService.getCurrency(
       this.currencyService.getSelectedCurrencyCode().getValue()
     );
+    this.selectedCurrencyName = `${selectedCurrency.name} (${selectedCurrency.code})`;
+
+    const objects: EpObject[] = this.objectService.getObjects();
+
+    const pricedObjects = {};
+    objects.forEach(epObject => {
+      let pricedObjectOfType: PricedObject[] = pricedObjects[epObject.objectType];
+      if (pricedObjectOfType == null) {
+        pricedObjectOfType = [];
+        pricedObjects[epObject.objectType] = pricedObjectOfType;
+      }
+      const objectPrice: Price = this.pricerService.computePrice(epObject);
+      pricedObjectOfType.push(new PricedObject(epObject.name, objectPrice));
+    });
+    this.pricedObjects = pricedObjects;
+  }
+
+  public getCo2Objects(): PricedObject[] {
+    return this.pricedObjects[ObjectType.Co2];
+  }
+
+  public getCropObjects(): PricedObject[] {
+    return this.pricedObjects[ObjectType.Crop];
+  }
+
+  public getLivestockObjects(): PricedObject[] {
+    return this.pricedObjects[ObjectType.Livestock];
+  }
+
+  public getCompoundObjects(): PricedObject[] {
+    return this.pricedObjects[ObjectType.Compound];
   }
 }

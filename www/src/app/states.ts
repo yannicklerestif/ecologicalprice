@@ -9,16 +9,17 @@ import {
 } from '@uirouter/angular';
 
 import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
 import { DetailsComponent } from './components/details/details.component';
 import { PricesComponent } from './components/prices/prices.component';
 import { CountryService } from './services/country.service';
 import { ViewportForwarderComponent } from './components/viewport-forwarder/viewport-forwarder.component';
 import { CurrencyService } from './services/currency.service';
+import { ObjectService } from './services/object/object.service';
 
-/** UIRouter Config  */
 export function uiRouterConfigFn(router: UIRouter, injector: Injector) {
   let countryService: CountryService = injector.get(CountryService);
-  router.urlService.rules.otherwise({ state: 'root.prices.summary' });
+  router.urlService.rules.otherwise({ state: 'root.prices.home' });
   router.stateService.defaultErrorHandler((r: Rejection) => {
     if (r.type === RejectType.SUPERSEDED) {
       console.log('ignoring: ', r);
@@ -34,6 +35,10 @@ export function countriesResolveFn(countryService: CountryService) {
 
 export function currenciesResolveFn(currencyService: CurrencyService) {
   return currencyService.load();
+}
+
+export function objectsResolveFn(objectService: ObjectService) {
+  return objectService.load();
 }
 
 export function countryResolveFn(
@@ -81,11 +86,15 @@ export function currencyResolveFn(
   return stateService.go(stateName, params);
 }
 
+// FIXME use 'default' (or undefined) for the country parameter if the country is the user's country.
+// otherwise, if I live in France and send the URL for EP to a user that lives in the US, he will see
+// the prices for France, which is not what we want unless we explicitly forced France as the country
 export const states: Ng2StateDeclaration[] = [
   {
     name: 'root',
     url: '',
     abstract: true,
+    // FIXME bundle all this resolves
     resolve: [
       {
         token: 'countries',
@@ -96,6 +105,11 @@ export const states: Ng2StateDeclaration[] = [
         token: 'currencies',
         deps: [CurrencyService],
         resolveFn: currenciesResolveFn,
+      },
+      {
+        token: 'objects',
+        deps: [ObjectService],
+        resolveFn: objectsResolveFn,
       },
     ],
     views: {
@@ -129,6 +143,11 @@ export const states: Ng2StateDeclaration[] = [
       },
     ],
     component: ViewportForwarderComponent,
+  },
+  {
+    name: 'root.prices.home',
+    url: '/home',
+    component: HomeComponent,
   },
   {
     name: 'root.prices.summary',

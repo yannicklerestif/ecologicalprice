@@ -35,6 +35,10 @@ export class CurrencyService {
     return this.selectedCurrencyCode;
   }
 
+  getSelectedCurrency(): Currency {
+    return this.currencies[this.selectedCurrencyCode.getValue()];
+  }
+
   getCurrency(currencyCode: string): Currency {
     if (!this.isValidCurrencyCode(currencyCode)) {
       throw new Error(`Invalid currency code: ${currencyCode}`);

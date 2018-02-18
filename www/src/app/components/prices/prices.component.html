@@ -1,3 +1,35 @@
-<h1>PRICES</h1>
-<p>{{selectedCountry.name}}</p>
-<p>{{selectedCurrency.name}}</p>
+<h1>Prices</h1>
+<p>Ecological prices depend on the country.
+  You have choosen: <span class="emphasis">{{selectedCountryName}}</span>.
+  Prices are in <span class="emphasis">{{selectedCurrencyName}}</span>.</p>
+
+<h2>CO2 Objects</h2>
+<p>The ecological prices of a CO2 objects are calculated from the amount of CO2 their production generates.</p>
+<p>The table below shows the ecological prices of some CO2 objects.</p>
+<p>For more details on how the ecological prices of CO2 object are computed,
+  see the <a uiSref="root.prices.details">Details</a> page.</p>
+<app-prices-table [pricedObjects]="getCo2Objects()"></app-prices-table>
+
+<h2>Crop Objects</h2>
+<p>The ecological prices of crop objects are calculated from the surface of cultivated land needed for their
+  production.</p>
+<p>The table below shows the ecological prices of some crop objects.</p>
+<p>For more details on how the ecological prices of crop objects are computed,
+  see the <a uiSref="root.prices.details">Details</a> page.</p>
+<app-prices-table [pricedObjects]="getCropObjects()"></app-prices-table>
+
+<h2>Livestock Objects</h2>
+<p>The ecological prices of livestock objects are calculated from the surface of cultivated and grazing land needed to
+  feed them.</p>
+<p>The table below shows the ecological prices of some livestock objects.</p>
+<p>For more details on how the ecological prices of livestock objects are computed,
+  see the <a uiSref="root.prices.details">Details</a> page.</p>
+<app-prices-table [pricedObjects]="getLivestockObjects()"></app-prices-table>
+
+<h2>Compound Objects</h2>
+<p>Compound objects are objects that are composed of other objects. Their ecological price are derived from the
+  ecological prices of these other objects.</p>
+<p>The table below shows the ecological prices of some compound objects.</p>
+<p>For more details on how the ecological prices of compound objects are computed,
+  see the <a uiSref="root.prices.details">Details</a> page.</p>
+<app-prices-table [pricedObjects]="getCompoundObjects()"></app-prices-table>

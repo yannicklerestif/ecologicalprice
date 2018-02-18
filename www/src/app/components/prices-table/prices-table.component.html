@@ -1,0 +1,15 @@
+<mat-table #table [dataSource]="pricedObjects">
+
+  <ng-container matColumnDef="objectName">
+    <mat-header-cell *matHeaderCellDef> Object </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="objectPrice">
+    <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.price.currency.symbol}} {{element.price.value}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

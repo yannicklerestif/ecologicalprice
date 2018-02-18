@@ -1,7 +1,13 @@
+@import '../exports.scss';
+
 .fixed-header {
   position: sticky;
   position: -webkit-sticky;
   top: 0px;
   left: 0px;
   z-index: 2;
+}
+
+#main-content {
+  padding: 0 $default-padding 0 $default-padding;
 }

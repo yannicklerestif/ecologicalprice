@@ -46,6 +46,10 @@ export class CountryService {
     return this.countries[countryCode];
   }
 
+  public getSelectedCountry(): Country {
+    return this.countries[this.selectedCountryCode.getValue()];
+  }
+
   public getCountries(): Country[] {
     return Object.values(this.countries);
   }

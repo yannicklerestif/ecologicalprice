@@ -33,5 +33,17 @@ html, body {
   }
 }
 
+h1, h2 {
+  color: mat-color(map-get($my-theme, primary));
+}
 
+.emphasis {
+  color: mat-color(map-get($my-theme, primary));
+  font-weight: bold;
+}
 
+a {
+  font-weight: bold;
+  text-decoration: underline;
+  color: mat-color(map-get($my-theme, primary));
+}
