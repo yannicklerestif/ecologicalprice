@@ -1,1 +1,6 @@
+@import '~@angular/material/theming';
+@import './my-theme';
+
 $default-padding: 10px;
+$light-primary-color: mat-color(map-get($my-theme, primary), 50);
+$primary-color: mat-color(map-get($my-theme, primary))

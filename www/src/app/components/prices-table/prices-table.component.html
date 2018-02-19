@@ -16,6 +16,6 @@
     <mat-cell *matCellDef="let element">{{element.price.value | currency:element.price.currency.code}}</mat-cell>
   </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-header-row class="ep-header-row" *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>

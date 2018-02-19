@@ -1,10 +1,6 @@
 @import '~@angular/material/theming';
 @import '../../../my-theme';
 
-.mat-header-row {
-  background-color: mat-color(map-get($my-theme, primary), 50);;
-}
-
 .mat-column-objectName {
   flex: 60%;
 }

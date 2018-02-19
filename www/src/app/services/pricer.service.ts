@@ -12,10 +12,10 @@ export class PricerService {
 
   // FIXME get from db
   // FIXME ownership of this data?
-  private worldPppGdp: number = 115165700000000;
+  public worldPppGdp: number = 115165700000000;
   // FIXME get from db
   // FIXME ownership of this data?
-  private worldTotalBiocapacity: number = 12233516313.9;
+  public worldTotalBiocapacity: number = 12233516313.9;
 
   computePrice(epObject: EpObject): Price {
     // TODO store selected country and currency?

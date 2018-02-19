@@ -8,6 +8,8 @@
 
 @include angular-material-theme($my-theme);
 
+@import './exports';
+
 html, body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -46,4 +48,18 @@ a {
   font-weight: bold;
   text-decoration: underline;
   color: mat-color(map-get($my-theme, primary));
+}
+
+.mat-header-row.ep-header-row {
+  background-color: mat-color(map-get($my-theme, primary), 50);;
+}
+
+.data-box {
+  background-color: $light-primary-color;
+  padding: 20px;
+  color: $primary-color;
+}
+
+.data-box-result {
+  border: solid 3px $primary-color;
 }

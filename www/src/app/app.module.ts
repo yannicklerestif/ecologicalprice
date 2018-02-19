@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UIRouterModule } from '@uirouter/angular';
-import { CurrencyPipe } from '@angular/common';
 
 // angular material
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -32,6 +31,8 @@ import { HomeComponent } from './components/home/home.component';
 import { PricesTableComponent } from './components/prices-table/prices-table.component';
 import { ObjectService } from './services/object/object.service';
 import { ObjectRepositoryService } from './services/object/object-repository.service';
+import { Co2ObjectService } from './services/object/co2-object.service';
+import { Co2ObjectRepositoryService } from './services/object/co2-object-repository.service';
 import { PricerService } from './services/pricer.service';
 
 @NgModule({
@@ -71,6 +72,8 @@ import { PricerService } from './services/pricer.service';
     CurrencyRepositoryService,
     ObjectService,
     ObjectRepositoryService,
+    Co2ObjectService,
+    Co2ObjectRepositoryService,
     PricerService,
     {
       provide: HTTP_INTERCEPTORS,

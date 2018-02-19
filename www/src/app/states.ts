@@ -16,6 +16,7 @@ import { CountryService } from './services/country.service';
 import { ViewportForwarderComponent } from './components/viewport-forwarder/viewport-forwarder.component';
 import { CurrencyService } from './services/currency.service';
 import { ObjectService } from './services/object/object.service';
+import { Co2ObjectService } from './services/object/co2-object.service';
 
 export function uiRouterConfigFn(router: UIRouter, injector: Injector) {
   let countryService: CountryService = injector.get(CountryService);
@@ -39,6 +40,10 @@ export function currenciesResolveFn(currencyService: CurrencyService) {
 
 export function objectsResolveFn(objectService: ObjectService) {
   return objectService.load();
+}
+
+export function co2ObjectsResolveFn(co2ObjectService: Co2ObjectService) {
+  return co2ObjectService.load();
 }
 
 export function countryResolveFn(
@@ -158,5 +163,12 @@ export const states: Ng2StateDeclaration[] = [
     name: 'root.prices.details',
     url: '/details',
     component: DetailsComponent,
+    resolve: [
+      {
+        token: 'co2Objects',
+        deps: [Co2ObjectService],
+        resolveFn: co2ObjectsResolveFn,
+      },
+    ],
   },
 ];
