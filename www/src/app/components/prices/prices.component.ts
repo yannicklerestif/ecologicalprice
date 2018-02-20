@@ -3,10 +3,11 @@ import { CurrencyService } from '../../services/currency.service';
 import { CountryService } from '../../services/country.service';
 import { PricedObject } from '../prices-table/priced-object';
 import { ObjectService } from '../../services/object/object.service';
-import { EpObject } from '../../model/ep-object';
+import { EpObject } from '../../model/objects/ep-object';
 import { PricerService } from '../../services/pricer.service';
 import { Price } from '../../model/price';
-import { ObjectType } from '../../model/object-type';
+import { ObjectType } from '../../model/objects/object-type';
+import { ObjectDetails } from '../../model/objects/object-details';
 
 @Component({
   selector: 'app-prices',
@@ -37,7 +38,7 @@ export class PricesComponent implements OnInit {
     );
     this.selectedCurrencyName = `${selectedCurrency.name} (${selectedCurrency.code})`;
 
-    const objects: EpObject[] = this.objectService.getObjects();
+    const objects: EpObject<ObjectDetails>[] = this.objectService.getObjects();
 
     const pricedObjects = {};
     objects.forEach(epObject => {
