@@ -32,6 +32,7 @@ import { PricesTableComponent } from './components/prices-table/prices-table.com
 import { ObjectService } from './services/object/object.service';
 import { ObjectRepositoryService } from './services/object/object-repository.service';
 import { PricerService } from './services/pricer.service';
+import { ScrollHelperService } from './services/scroll-helper.service';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { PricerService } from './services/pricer.service';
     ObjectService,
     ObjectRepositoryService,
     PricerService,
+    ScrollHelperService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: APIInterceptor,

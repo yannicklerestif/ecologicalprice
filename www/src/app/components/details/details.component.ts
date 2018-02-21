@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Transition } from '@uirouter/core';
+
 import { CurrencyService } from '../../services/currency.service';
 import { CountryService } from '../../services/country.service';
 import { Currency } from '../../model/currency';
@@ -11,6 +13,7 @@ import { Price } from '../../model/price';
 import { CropObject } from '../../model/objects/crop-object';
 import { LivestockObject } from '../../model/objects/livestock-object';
 import { CompoundObject } from '../../model/objects/compound-object';
+import { ScrollHelperService } from '../../services/scroll-helper.service';
 
 @Component({
   selector: 'app-details',
@@ -40,13 +43,16 @@ export class DetailsComponent implements OnInit {
   sampleCompoundObject: EpObject<CompoundObject>;
 
   constructor(
+    private transition: Transition,
     private countryService: CountryService,
     private currencyService: CurrencyService,
     private pricerService: PricerService,
-    private objectService: ObjectService
+    private objectService: ObjectService,
+    private scrollHelperService: ScrollHelperService
   ) {}
 
   ngOnInit() {
+    this.scrollHelperService.scrolltopIfNecessary(this.transition);
     this.selectedCountry = this.countryService.getCountry(
       this.countryService.getSelectedCountryCode().getValue()
     );

@@ -8,6 +8,8 @@ import { PricerService } from '../../services/pricer.service';
 import { Price } from '../../model/price';
 import { ObjectType } from '../../model/objects/object-type';
 import { ObjectDetails } from '../../model/objects/object-details';
+import { ScrollHelperService } from '../../services/scroll-helper.service';
+import { Transition } from '@uirouter/core';
 
 @Component({
   selector: 'app-prices',
@@ -22,6 +24,8 @@ export class PricesComponent implements OnInit {
   private pricedObjects: { [objectType: number]: PricedObject[] };
 
   constructor(
+    private transition: Transition,
+    private scrollHelperService: ScrollHelperService,
     private countryService: CountryService,
     private currencyService: CurrencyService,
     private objectService: ObjectService,
@@ -29,6 +33,7 @@ export class PricesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.scrollHelperService.scrolltopIfNecessary(this.transition);
     const selectedCountry = this.countryService.getCountry(
       this.countryService.getSelectedCountryCode().getValue()
     );
