@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UIRouterModule } from '@uirouter/angular';
+import { CurrencyPipe } from '@angular/common';
 
 // angular material
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -33,6 +34,12 @@ import { ObjectService } from './services/object/object.service';
 import { ObjectRepositoryService } from './services/object/object-repository.service';
 import { PricerService } from './services/pricer.service';
 import { ScrollHelperService } from './services/scroll-helper.service';
+import { Co2DetailsComponent } from './components/details/co2/co2-details.component';
+import { EcologicalPricePipe } from './pipes/ecological-price.pipe';
+import { GlobalDetailsComponent } from './components/details/global-details/global-details.component';
+import { CropDetailsComponent } from './components/details/crop-details/crop-details.component';
+import { LivestockDetailsComponent } from './components/details/livestock-details/livestock-details.component';
+import { CompoundDetailsComponent } from './components/details/compound-details/compound-details.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +50,12 @@ import { ScrollHelperService } from './services/scroll-helper.service';
     HeaderComponent,
     HomeComponent,
     PricesTableComponent,
+    Co2DetailsComponent,
+    EcologicalPricePipe,
+    GlobalDetailsComponent,
+    CropDetailsComponent,
+    LivestockDetailsComponent,
+    CompoundDetailsComponent,
   ],
   imports: [
     // core / angular
@@ -65,6 +78,7 @@ import { ScrollHelperService } from './services/scroll-helper.service';
     MatTableModule,
   ],
   providers: [
+    CurrencyPipe,
     CountryService,
     CountryRepositoryService,
     CurrencyService,
@@ -73,6 +87,7 @@ import { ScrollHelperService } from './services/scroll-helper.service';
     ObjectRepositoryService,
     PricerService,
     ScrollHelperService,
+    EcologicalPricePipe,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: APIInterceptor,

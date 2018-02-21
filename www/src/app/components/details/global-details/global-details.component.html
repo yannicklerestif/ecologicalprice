@@ -1,0 +1,79 @@
+<h2>Ecological Footprint</h2>
+<p>Ecological prices are based on the work of the
+  <a href="https://www.footprintnetwork.org/" target="_blank">Global Footprint Network</a>.</p>
+<p>Their work is based on the notion of <span class="emphasis">global hectare</span>, a unit in which they
+  are able to express all resources we consume, and all available resources.</p>
+<p>For CO2 emissions, it will be the amount of land needed to absorb them,
+  for agricultural products, the land area needed to produce them,
+  for livestock products, the land needed to feed them, and so on.</p>
+<p>Different types of land account for a different number of global hectares depending on a coefficient
+  they call <span class="emphasis">Equivalence Factor</span>.</p>
+<p class="test">They calculated the world's total biocapacity as the following:</p>
+<div class="data-box"><span class="emphasis">
+  World's Total Biocapacity: {{worldTotalBiocapacity | number:'.2-2'}} billion gha
+</span></div>
+
+<h2>Pricing Global Hectares</h2>
+<h3>Price in International Dollars</h3>
+<p>To give an <span class="emphasis">ecological price</span> to a global hectare, we divide the amount of money spent in
+  one year in the world by the world total biocapacity.</p>
+<p>We can then compute the ecological price of an object by multiplying the number
+  of global hectares needed to produce it by the ecological price of a global hectare.</p>
+<p>To evaluate the amount of money spent in one year, the first idea that comes to mind is to use the world's GDP.</p>
+<p>But the problem with this idea is that the ecological prices computed this way do not depend on the purchase power in
+  a country. In other words, if the general level of the prices is a lot lower in a country, ecological prices in this
+  country will be relatively a lot higher.</p>
+<p>To take this into account, we use the <a href="https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(PPP)">world's
+  GDP expressed in International Dollars</a> as computed by the world bank, that takes the purchasing power parity into
+  account. Its value is the following:</p>
+<div class="data-box">
+  <span class="emphasis">
+    World's GDP in International Dollars: I${{worldPppGdp | number:'.2-2'}} billion
+  </span>
+</div>
+<p>The price of a global hectare in International Dollars is then:</p>
+<div class="data-box">
+  <span class="emphasis">
+    Ecological price of a global hectare:
+  </span>
+  {{worldPppGdp | number:'.2-2'}} / {{worldTotalBiocapacity | number:'.2-2'}} =
+  <span class="emphasis">
+    I${{globalHectarePriceIntDollars | number:'.2-2'}}
+  </span>
+</div>
+<p>Because here the quantities we manipulate are typically a lot smaller than a hectare, we will use
+  <span class="emphasis">global square meters</span>, that are 1 / {{10000 | number}} th of a global hectare.
+  The ecological price of a global square meter is then:</p>
+<div class="data-box data-box-result">
+  <span class="emphasis">
+    Ecological Price of a global square meter:
+  </span>
+  {{globalHectarePriceIntDollars | number:'.2-2'}} / {{10000 | number}} =
+  <span class="emphasis">
+    I${{globalSquareMeterPriceIntDollars | number:'.2-3'}}
+  </span>
+</div>
+
+<h3>Price in {{selectedCurrency.name}} for {{selectedCountry.name}}</h3>
+<p>The price of a global square meter for a country is the computed by multiplying the price
+  in International Dollars
+  by the average level of the prices in this country. We then convert it into the chosen currency.</p>
+<p>Prices level in a country are computed by dividing the PPP GDP of this country by its nominal GDP.</p>
+<div class="data-box">
+  <span class="emphasis">
+    Average price level in {{selectedCountry.name}}: {{selectedCountry.avgPrices | number:'.2-2'}}<br>
+    Exchange rate for {{selectedCurrency.name}}: {{selectedCurrency.exchangeRate | number:'.2-2'}}<br>
+  </span>
+</div>
+<p>Which gives us:</p>
+<div class="data-box data-box-result">
+  <span class="emphasis">
+    Price of a global square meter in {{selectedCountry.name}}:
+  </span>
+  {{globalSquareMeterPriceIntDollars | number:'.2-3'}} x {{selectedCountry.avgPrices | number:'.2-2'}} x
+  {{selectedCurrency.exchangeRate | number:'.2-2'}} =
+  <span class="emphasis">
+    <!-- FIXME: was: 3-3 -->
+    {{globalSquareMeterPrice | ecologicalPrice:'.2-3'}}
+  </span>
+</div>

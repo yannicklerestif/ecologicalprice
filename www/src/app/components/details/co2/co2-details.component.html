@@ -1,0 +1,39 @@
+<h2>Prices Of CO2 Objects</h2>
+<p>The ecological price of CO2 objects, by definition, only depends on the CO2 emitted to create them.
+  The ecological footprint, in global hectares, of a CO2 object, is computed by multiplying its CO2 cost
+  by the ecological footprint of CO2 emissions.</p>
+<p>The ecological footprint of CO2 emissions is computed by the Global Footprint Network:</p>
+<div class="data-box">
+  <span class="emphasis">
+    CO2 ecological footprint: {{co2Footprint * 10000}} gm² / kg
+  </span>
+</div>
+<p>Then, for example for the CO2 object <span class="emphasis">{{co2Object.name}}</span>:</p>
+<div class="data-box">
+  <span class="emphasis">
+    CO2 emissions for {{co2Object.name}}: {{co2Object.details.co2Cost | number:'.2-2'}} kg
+  </span>
+</div>
+<p>The ecological footprint is then the following:</p>
+<div class="data-box">
+  <span class="emphasis">
+    Ecological footprint for {{co2Object.name}}:
+  </span>
+  {{co2Footprint * 10000}} x {{co2Object.details.co2Cost | number:'.2-2'}} =
+  <span class="emphasis">
+    {{co2ObjectEcologicalFootprint | number:'.2-2'}} gm²
+  </span>
+</div>
+<p>We can then compute the ecological price by multiplying the ecological price by the price of a global square
+  meter computed above:</p>
+<div class="data-box data-box-result">
+  <span class="emphasis">
+    Ecological price for {{co2Object.name}}:
+  </span>
+  {{co2ObjectEcologicalFootprint | number:'.2-2'}} x {{ globalSquareMeterPrice.value | number:'.2-3'}} =
+  <span class="emphasis">
+    {{co2ObjectPrice | ecologicalPrice}}
+  </span>
+</div>
+
+

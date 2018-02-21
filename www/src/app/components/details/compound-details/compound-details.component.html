@@ -1,0 +1,45 @@
+<h2>Prices Of Compound Objects</h2>
+<p><span class="emphasis">Compound objects</span> are composed of a certain <span class="emphasis">quantity</span>
+  of a certain number of <span class="emphasis">parent objects</span>.</p>
+<p>The ecological price of a compound object is the sum of the prices of its parent objects, multiplied by their
+  quantity.</p>
+<p>The parents of <span class="emphasis">{{compoundObject.name}}</span> and their quantities are:</p>
+<div class="data-box">
+  <span class="emphasis" *ngFor="let compoundObjectLink of compoundObject.details.links">
+    {{getObject(compoundObjectLink.parentId).name}}
+    - Quantity: {{compoundObjectLink.quantity | number:'.1-2'}}<br>
+  </span>
+</div>
+<p>Their individual ecological prices (before multiplying by the quantity) are:</p>
+<div class="data-box">
+  <span class="emphasis" *ngFor="let compoundObjectLink of compoundObject.details.links">
+    Ecological price of {{getObject(compoundObjectLink.parentId).name}}:
+    {{getPrice(compoundObjectLink.parentId) | ecologicalPrice}}<br>
+  </span>
+</div>
+<p>By multiplying the quantities by the individual ecological prices, we obtain the contributions of each parent
+  object:</p>
+<div class="data-box">
+  <div *ngFor="let compoundObjectLink of compoundObject.details.links">
+    <span class="emphasis">
+      Contribution of {{getObject(compoundObjectLink.parentId).name}}:
+    </span>
+    {{compoundObjectLink.quantity | number:'.1-2'}}
+    x {{getPrice(compoundObjectLink.parentId).value | number:'.2-2'}} =
+    <span class="emphasis">
+      {{getContribution(compoundObjectLink) | ecologicalPrice}}
+    </span>
+  </div>
+</div>
+<p>We obtain the price of the compound object by adding the contributions of its parents:</p>
+<div class="data-box data-box-result">
+  <span class="emphasis">Ecological price for {{compoundObject.name}}:</span>
+  <span *ngFor="let compoundObjectLink of compoundObject.details.links; let first = first">
+    <span *ngIf="!first"> + </span>
+    {{getContribution(compoundObjectLink).value | number:'.2-2'}}
+  </span>
+  =
+  <span class="emphasis">
+    {{getPrice(compoundObject.id) | ecologicalPrice}}
+  </span>
+</div>

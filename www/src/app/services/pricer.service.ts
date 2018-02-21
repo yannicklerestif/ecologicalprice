@@ -18,16 +18,23 @@ export class PricerService {
   // FIXME ownership of this data?
   public worldTotalBiocapacity: number = 12233516313.9;
 
-  computePrice(epObject: EpObject<ObjectDetails>): Price {
+  private getGlobalHectarePrice(): Price {
     // TODO store selected country and currency?
     const selectedCountry: Country = this.countryService.getSelectedCountry();
     const selectedCurrency: Currency = this.currencyService.getSelectedCurrency();
     const value =
-      epObject.ef *
       this.worldPppGdp /
       this.worldTotalBiocapacity *
       selectedCountry.avgPrices *
       selectedCurrency.exchangeRate;
     return new Price(value, selectedCurrency);
+  }
+
+  getGlobalSquareMeterPrice(): Price {
+    return this.getGlobalHectarePrice().times(0.0001);
+  }
+
+  computePrice(epObject: EpObject<ObjectDetails>): Price {
+    return this.getGlobalHectarePrice().times(epObject.ef);
   }
 }
