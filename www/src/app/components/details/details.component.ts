@@ -10,6 +10,7 @@ import { EpObject } from '../../model/objects/ep-object';
 import { Price } from '../../model/price';
 import { CropObject } from '../../model/objects/crop-object';
 import { LivestockObject } from '../../model/objects/livestock-object';
+import { CompoundObject } from '../../model/objects/compound-object';
 
 @Component({
   selector: 'app-details',
@@ -36,6 +37,7 @@ export class DetailsComponent implements OnInit {
   sampleLivestockObject: EpObject<LivestockObject>;
   sampleLivestockObjectEcologicalFootprint1Kg: number;
   sampleLivestockObjectEcologicalPrice: Price;
+  sampleCompoundObject: EpObject<CompoundObject>;
 
   constructor(
     private countryService: CountryService,
@@ -80,5 +82,7 @@ export class DetailsComponent implements OnInit {
     this.sampleLivestockObjectEcologicalPrice = this.pricerService.computePrice(
       this.sampleLivestockObject
     );
+    // compound objects
+    this.sampleCompoundObject = this.objectService.getCompoundObjects()[0];
   }
 }

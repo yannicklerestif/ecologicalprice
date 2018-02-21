@@ -6,6 +6,7 @@ import { ObjectType } from '../../model/objects/object-type';
 import { Co2Object } from '../../model/objects/co2-object';
 import { CropObject } from '../../model/objects/crop-object';
 import { LivestockObject } from '../../model/objects/livestock-object';
+import { CompoundObject } from '../../model/objects/compound-object';
 
 @Injectable()
 export class ObjectService {
@@ -21,7 +22,14 @@ export class ObjectService {
   ): Map<number, EpObject<ObjectDetails>> {
     const result: Map<number, EpObject<ObjectDetails>> = new Map();
     epObjects.forEach(epObject => result.set(epObject.id, epObject));
-    detailsArray.forEach(details => (result.get(details.objectId).details = details));
+    detailsArray.forEach(details => {
+      const epObject = result.get(details.objectId);
+      if (epObject == null) {
+        console.error('No epObject found for this object: ', details);
+        throw new Error(`No epObject found for detail object - objectId: ${details.objectId}`);
+      }
+      epObject.details = details;
+    });
     // checking that no epObject was forgotten
     result.forEach(epObject => {
       if (epObject.details == null) {
@@ -65,7 +73,11 @@ export class ObjectService {
     return this.getObjectsOfType(ObjectType.Crop) as EpObject<CropObject>[];
   }
 
-  getLivestockObjects() {
+  getLivestockObjects(): EpObject<LivestockObject>[] {
     return this.getObjectsOfType(ObjectType.Livestock) as EpObject<LivestockObject>[];
+  }
+
+  getCompoundObjects(): EpObject<CompoundObject>[] {
+    return this.getObjectsOfType(ObjectType.Compound) as EpObject<CompoundObject>[];
   }
 }
