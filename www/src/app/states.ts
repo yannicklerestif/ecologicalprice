@@ -18,7 +18,6 @@ import { CurrencyService } from './services/currency.service';
 import { ObjectService } from './services/object/object.service';
 
 export function uiRouterConfigFn(router: UIRouter, injector: Injector) {
-  let countryService: CountryService = injector.get(CountryService);
   router.urlService.rules.otherwise({ state: 'root.prices.home' });
   router.stateService.defaultErrorHandler((r: Rejection) => {
     if (r.type === RejectType.SUPERSEDED) {
@@ -156,7 +155,13 @@ export const states: Ng2StateDeclaration[] = [
   },
   {
     name: 'root.prices.details',
-    url: '/details',
+    params: {
+      objectId: {
+        type: 'int',
+        value: null,
+      },
+    },
+    url: '/details/:objectId',
     component: DetailsComponent,
   },
 ];

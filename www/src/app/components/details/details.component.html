@@ -1,11 +1,11 @@
 <h1>Details</h1>
 
-<app-global-details></app-global-details>
+<app-global-details *ngIf="!isZoomMode"></app-global-details>
 
-<app-co2-details [co2Object]="co2Object"></app-co2-details>
+<app-co2-details *ngIf="co2Object" [co2Object]="co2Object"></app-co2-details>
 
-<app-crop-details [cropObject]="cropObject"></app-crop-details>
+<app-crop-details *ngIf="cropObject" [cropObject]="cropObject"></app-crop-details>
 
-<app-livestock-details [livestockObject]="livestockObject"></app-livestock-details>
+<app-livestock-details *ngIf="livestockObject" [livestockObject]="livestockObject"></app-livestock-details>
 
-<app-compound-details [compoundObject]="compoundObject"></app-compound-details>
+<app-compound-details *ngIf="compoundObject" [compoundObject]="compoundObject"></app-compound-details>

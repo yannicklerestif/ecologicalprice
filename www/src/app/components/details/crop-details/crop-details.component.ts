@@ -24,7 +24,6 @@ export class CropDetailsComponent implements OnInit {
     // crop objects
     // FIXME get from db
     this.equivalenceFactorForCropLand = 2.56;
-    this.cropObject = this.objectService.getCropObjects()[0];
     this.cropObjectSurfaceNeeded = 0.001 * 10000 / this.cropObject.details.objectYield;
     this.globalSquareMeterPrice = this.pricerService.getGlobalSquareMeterPrice();
     this.cropObjectPrice = this.pricerService.computePrice(this.cropObject);
