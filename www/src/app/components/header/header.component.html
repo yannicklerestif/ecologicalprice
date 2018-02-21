@@ -7,8 +7,8 @@
     <a class="white-button-overlay" mat-button [disableRipple]="true"
        uiSref="root.prices.details" uiSrefActive="active">Details</a>
   </div>
-  <span class="filler"></span>
-  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <div class="filler" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <span class="filler"></span>
     <mat-form-field id="country-select" class="header-nav-inner-element">
       <mat-select placeholder="Country" mat-color="secondary" [value]="selectedCountryCode"
                   (selectionChange)="countryChanged($event)">
