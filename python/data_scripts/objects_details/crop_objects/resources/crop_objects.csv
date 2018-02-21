@@ -3,9 +3,10 @@
 # http://www.fao.org/faostat/en/#data/QC
 # modified some of the names
 # ***************************************************************************************
-# MAKE SURE NOT TO CHANGE THE ORDER OF THE LINES:
+# MAKE SURE NOT TO CHANGE THE ORDER OF THE LINES, NOR INSERT / DELETE:
 # the id of the objects are their position in this file, and some compound objects
 # depend on them
+# appending is ok.
 # ***************************************************************************************
 Domain Code,Domain,Area Code,Area,Element Code,Element,Item Code,Item,Year Code,Year,Unit,Value,Flag,Flag Description
 "QC","Crops","5000","World","5419","Yield","221","Almonds, with shell","2013","2013","hg/ha","15579","Fc","Calculated data"
