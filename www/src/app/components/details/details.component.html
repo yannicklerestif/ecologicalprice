@@ -44,8 +44,8 @@
   </span>
 </div>
 <p>Because here the quantities we manipulate are typically a lot smaller than a hectare, we will use
-<span class="emphasis">global square meters</span>, that are 1 / {{10000 | number}} th of a global hectare.
-The ecological price of a global square meter is then:</p>
+  <span class="emphasis">global square meters</span>, that are 1 / {{10000 | number}} th of a global hectare.
+  The ecological price of a global square meter is then:</p>
 <div class="data-box data-box-result">
   <span class="emphasis">
     Ecological Price of a global square meter:
@@ -72,7 +72,7 @@ The ecological price of a global square meter is then:</p>
   <span class="emphasis">
     Price of a global square meter in {{selectedCountry.name}}:
   </span>
-  {{globalSquareMeterPriceIntDollars | number:'.2-3'}} * {{selectedCountry.avgPrices | number:'.2-2'}} *
+  {{globalSquareMeterPriceIntDollars | number:'.2-3'}} x {{selectedCountry.avgPrices | number:'.2-2'}} x
   {{selectedCurrency.exchangeRate | number:'.2-2'}} =
   <span class="emphasis">
     {{globalSquareMeterPriceSelectedCurrency | currency:selectedCurrency.code:'symbol':'.3-3'}}
@@ -100,7 +100,7 @@ The ecological price of a global square meter is then:</p>
   <span class="emphasis">
     Ecological footprint for {{sampleCo2Object.name}}:
   </span>
-  {{co2Footprint * 10000}} * {{sampleCo2Object.details.co2Cost | number:'.2-2'}} =
+  {{co2Footprint * 10000}} x {{sampleCo2Object.details.co2Cost | number:'.2-2'}} =
   <span class="emphasis">
     {{sampleCo2ObjectEcologicalFootprint | number:'.2-2'}} gm²
   </span>
@@ -111,7 +111,7 @@ The ecological price of a global square meter is then:</p>
   <span class="emphasis">
     Ecological price for {{sampleCo2Object.name}}:
   </span>
-  {{sampleCo2ObjectEcologicalFootprint | number:'.2-2'}} * {{ globalSquareMeterPriceSelectedCurrency | number:'.2-3'}} =
+  {{sampleCo2ObjectEcologicalFootprint | number:'.2-2'}} x {{ globalSquareMeterPriceSelectedCurrency | number:'.2-3'}} =
   <span class="emphasis">
     {{sampleCo2ObjectEcologicalPrice.value | currency:selectedCurrency.code}}
   </span>
@@ -131,7 +131,7 @@ The ecological price of a global square meter is then:</p>
   <span class="emphasis">
     Or in kg / m²:
   </span>
-  {{sampleCropObject.details.objectYield | number:'.2-2'}} * 1000 / {{10000 | number}} =
+  {{sampleCropObject.details.objectYield | number:'.2-2'}} x 1000 / {{10000 | number}} =
   <span class="emphasis">
     {{sampleCropObject.details.objectYield / 10 | number:'.2-3'}} kg / m²
   </span>
@@ -147,7 +147,7 @@ The ecological price of a global square meter is then:</p>
   </span>
 </div>
 <p>Then, we multiply by the <span class="emphasis">Equivalence Factor</span> for crop land, provided by the
-Global Footprint Network:</p>
+  Global Footprint Network:</p>
 <div class="data-box">
   <span class="emphasis">
     Equivalence Factor for crop land: {{equivalenceFactorForCropLand | number:'.2-2'}}
@@ -158,7 +158,7 @@ Global Footprint Network:</p>
   <span class="emphasis">
     Ecological footprint for {{sampleCropObject.name}}:
   </span>
-  {{equivalenceFactorForCropLand | number:'.2-2'}} * {{sampleCropObjectSurfaceNeeded | number:'.2-2'}} =
+  {{equivalenceFactorForCropLand | number:'.2-2'}} x {{sampleCropObjectSurfaceNeeded | number:'.2-2'}} =
   <span class="emphasis">
     {{sampleCropObject.ef * 10000 | number:'.2-2'}} gm²
   </span>
@@ -169,7 +169,7 @@ Global Footprint Network:</p>
   <span class="emphasis">
     Ecological price for {{sampleCropObject.name}}:
   </span>
-  {{sampleCropObject.ef * 10000 | number:'.2-2'}} * {{ globalSquareMeterPriceSelectedCurrency | number:'.2-3'}} =
+  {{sampleCropObject.ef * 10000 | number:'.2-2'}} x {{ globalSquareMeterPriceSelectedCurrency | number:'.2-3'}} =
   <span class="emphasis">
     {{sampleCropObjectEcologicalPrice.value | currency:selectedCurrency.code}}
   </span>
@@ -177,7 +177,7 @@ Global Footprint Network:</p>
 
 <h2>Prices Of Livestock Objects</h2>
 <p>The ecological price of livestock objects depends on the land surface needed to grow the products
-needed to feed them.</p>
+  needed to feed them.</p>
 <p>The Global Footprint Network provides the total ecological footprint and the total quantity
   produced for livestock objects.</p>
 <p>For example, for <span class="emphasis">{{sampleLivestockObject.name}}</span>:</p>
@@ -194,14 +194,15 @@ needed to feed them.</p>
   <span class="emphasis">
     Ecological footprint for 1 kg:<br>
   </span>
-  {{sampleLivestockObject.details.totalEcologicalFootprint | number}} / {{sampleLivestockObject.details.totalProduced | number}}
-  * 1000 * {{10000 | number}} =
+  {{sampleLivestockObject.details.totalEcologicalFootprint | number}} / {{sampleLivestockObject.details.totalProduced |
+  number}}
+  x 1000 x {{10000 | number}} =
   <span class="emphasis">
     {{sampleLivestockObjectEcologicalFootprint1Kg * 10000 | number:'.2-2'}} gm² <br>
   </span>
 </div>
 <p>This value is the ecological footprint for 1 kg of raw product, but we must account for losses when
-transforming it. To compute the ecological price of the final product, we must divide by the ratio
+  transforming it. To compute the ecological price of the final product, we must divide by the ratio
   between transformed product and raw product. For <span class="emphasis">{{sampleLivestockObject.name}}</span>,
   this value is:</p>
 <div class="data-box">
@@ -226,8 +227,54 @@ transforming it. To compute the ecological price of the final product, we must d
   <span class="emphasis">
     Ecological price for {{sampleLivestockObject.name}}:
   </span>
-  {{sampleLivestockObject.ef * 10000 | number:'.2-2'}} * {{ globalSquareMeterPriceSelectedCurrency | number:'.2-3'}} =
+  {{sampleLivestockObject.ef * 10000 | number:'.2-2'}} x {{ globalSquareMeterPriceSelectedCurrency | number:'.2-3'}} =
   <span class="emphasis">
     {{sampleLivestockObjectEcologicalPrice.value | currency:selectedCurrency.code}}
+  </span>
+</div>
+
+<h2>Prices Of Compound Objects</h2>
+<p><span class="emphasis">Compound objects</span> are composed of a certain <span class="emphasis">quantity</span>
+  of a certain number of <span class="emphasis">parent objects</span>.</p>
+<p>The ecological price of a compound object is the sum of the prices of its parent objects, multiplied by their
+  quantity.</p>
+<p>The parents of <span class="emphasis">{{sampleCompoundObject.name}}</span> and their quantities are:</p>
+<div class="data-box">
+  <span class="emphasis" *ngFor="let sampleCompoundObjectLink of sampleCompoundObject.details.links">
+    {{getObject(sampleCompoundObjectLink.parentId).name}}
+    - Quantity: {{sampleCompoundObjectLink.quantity | number:'.1-2'}}<br>
+  </span>
+</div>
+<p>Their individual ecological prices (before multiplying by the quantity) are:</p>
+<div class="data-box">
+  <span class="emphasis" *ngFor="let sampleCompoundObjectLink of sampleCompoundObject.details.links">
+    Ecological price of {{getObject(sampleCompoundObjectLink.parentId).name}}:
+    {{getPrice(sampleCompoundObjectLink.parentId).value | currency:selectedCurrency.code}}<br>
+  </span>
+</div>
+<p>By multiplying the quantities by the individual ecological prices, we obtain the contributions of each parent
+  object:</p>
+<div class="data-box">
+  <div *ngFor="let sampleCompoundObjectLink of sampleCompoundObject.details.links">
+    <span class="emphasis">
+      Contribution of {{getObject(sampleCompoundObjectLink.parentId).name}}:
+    </span>
+    {{sampleCompoundObjectLink.quantity | number:'.1-2'}}
+      x {{getPrice(sampleCompoundObjectLink.parentId).value | number:'.2-2'}} =
+    <span class="emphasis">
+      {{getContribution(sampleCompoundObjectLink) | currency:selectedCurrency.code}}
+    </span>
+  </div>
+</div>
+<p>We obtain the price of the compound object by adding the contributions of its parents:</p>
+<div class="data-box data-box-result">
+  <span class="emphasis">Ecological price for {{sampleCompoundObject.name}}:</span>
+  <span *ngFor="let sampleCompoundObjectLink of sampleCompoundObject.details.links; let first = first">
+    <span *ngIf="!first"> + </span>
+    {{getContribution(sampleCompoundObjectLink) | number:'.2-2'}}
+  </span>
+  =
+  <span class="emphasis">
+    {{getPrice(sampleCompoundObject.id).value | currency:selectedCurrency.code}}
   </span>
 </div>

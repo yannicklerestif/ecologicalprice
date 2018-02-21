@@ -14,6 +14,8 @@ import { CropObject } from '../../model/objects/crop-object';
 import { LivestockObject } from '../../model/objects/livestock-object';
 import { CompoundObject } from '../../model/objects/compound-object';
 import { ScrollHelperService } from '../../services/scroll-helper.service';
+import { CompoundObjectLink } from '../../model/objects/compound-object-link';
+import { ObjectDetails } from '../../model/objects/object-details';
 
 @Component({
   selector: 'app-details',
@@ -89,6 +91,18 @@ export class DetailsComponent implements OnInit {
       this.sampleLivestockObject
     );
     // compound objects
-    this.sampleCompoundObject = this.objectService.getCompoundObjects()[0];
+    this.sampleCompoundObject = this.objectService.getCompoundObjects()[2];
+  }
+
+  public getObject(objectId: number): EpObject<ObjectDetails> {
+    return this.objectService.getObject(objectId);
+  }
+
+  public getPrice(objectId: number): Price {
+    return this.pricerService.computePrice(this.objectService.getObject(objectId));
+  }
+
+  public getContribution(link: CompoundObjectLink): number {
+    return this.getPrice(link.parentId).value * link.quantity;
   }
 }
