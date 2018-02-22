@@ -1,19 +1,25 @@
-<h2>Prices Of Compound Objects</h2>
+<h2 *ngIf="!isZoomed">Prices Of Compound Objects</h2>
+<p *ngIf="isZoomed">
+  <app-object-link [epObject]="compoundObject"></app-object-link>
+  is a <span class="emphasis">Compound Object</span>.
+</p>
 <p><span class="emphasis">Compound objects</span> are composed of a certain <span class="emphasis">quantity</span>
   of a certain number of <span class="emphasis">parent objects</span>.</p>
+<p *ngIf="!isZoomed">To illustrate how the prices for compound objects are computed, we will use the example
+  of <app-object-link [epObject]="compoundObject"></app-object-link>.</p>
 <p>The ecological price of a compound object is the sum of the prices of its parent objects, multiplied by their
   quantity.</p>
-<p>The parents of <span class="emphasis">{{compoundObject.name}}</span> and their quantities are:</p>
+<p>The parents of <span class="emphasis"><app-object-link [epObject]="compoundObject"></app-object-link></span> and their quantities are:</p>
 <div class="data-box">
   <span class="emphasis" *ngFor="let compoundObjectLink of compoundObject.details.links">
-    {{getObject(compoundObjectLink.parentId).name}}
+    <app-object-link [epObject]="getObject(compoundObjectLink.parentId)"></app-object-link>
     - Quantity: {{compoundObjectLink.quantity | number:'.1-2'}}<br>
   </span>
 </div>
 <p>Their individual ecological prices (before multiplying by the quantity) are:</p>
 <div class="data-box">
   <span class="emphasis" *ngFor="let compoundObjectLink of compoundObject.details.links">
-    Ecological price of {{getObject(compoundObjectLink.parentId).name}}:
+    Ecological price of <app-object-link [epObject]="getObject(compoundObjectLink.parentId)"></app-object-link>:
     {{getPrice(compoundObjectLink.parentId) | ecologicalPrice}}<br>
   </span>
 </div>
@@ -22,7 +28,7 @@
 <div class="data-box">
   <div *ngFor="let compoundObjectLink of compoundObject.details.links">
     <span class="emphasis">
-      Contribution of {{getObject(compoundObjectLink.parentId).name}}:
+      Contribution of <app-object-link [epObject]="getObject(compoundObjectLink.parentId)"></app-object-link>:
     </span>
     {{compoundObjectLink.quantity | number:'.1-2'}}
     x {{getPrice(compoundObjectLink.parentId).value | number:'.2-2'}} =
@@ -33,7 +39,7 @@
 </div>
 <p>We obtain the price of the compound object by adding the contributions of its parents:</p>
 <div class="data-box data-box-result">
-  <span class="emphasis">Ecological price for {{compoundObject.name}}:</span>
+  <span class="emphasis">Ecological price for <app-object-link [epObject]="compoundObject"></app-object-link>:</span>
   <span *ngFor="let compoundObjectLink of compoundObject.details.links; let first = first">
     <span *ngIf="!first"> + </span>
     {{getContribution(compoundObjectLink).value | number:'.2-2'}}

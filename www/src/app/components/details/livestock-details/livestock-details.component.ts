@@ -11,6 +11,7 @@ import { PricerService } from '../../../services/pricer.service';
 })
 export class LivestockDetailsComponent implements OnInit {
   @Input() livestockObject: EpObject<LivestockObject>;
+  @Input() isZoomed: boolean;
 
   globalSquareMeterPrice: Price;
   livestockObjectFootprint1Kg: number;

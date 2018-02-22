@@ -1,13 +1,19 @@
-<h2>Prices Of Crop Objects</h2>
+<h2 *ngIf="!isZoomed">Prices Of Crop Objects</h2>
+<p *ngIf="isZoomed">
+  <app-object-link [epObject]="cropObject"></app-object-link>
+  is a <span class="emphasis">Crop Object</span>.
+</p>
 <p>The ecological price of crop objects, by definition, only depends on the surface of land needed to produce them.</p>
+<p *ngIf="!isZoomed">To illustrate how the prices for CO2 objects are computed, we will use the example
+  of <app-object-link [epObject]="cropObject"></app-object-link>.</p>
 <p>The surface of land needed to produce crop objects is obtained by dividing the weight of the object by the average
   yield of crops for this object. The yield of crops for crop object is provided by
   <a href="http://www.fao.org/faostat/en/#data/QC">the FAO</a>.
-  For <span class="emphasis">{{cropObject.name}}</span>, for example, the yield is:
+  For <span class="emphasis">{{cropObject.name}}</span>, the yield is:
 </p>
 <div class="data-box">
   <span class="emphasis">
-    Crop yield for {{cropObject.name}}: {{cropObject.details.objectYield | number:'.2-2'}} tons / ha <br>
+    Crop yield for <app-object-link [epObject]="cropObject"></app-object-link>: {{cropObject.details.objectYield | number:'.2-2'}} tons / ha <br>
   </span>
   <span class="emphasis">
     Or in kg / m²:
@@ -20,15 +26,20 @@
 <p>We can then compute the land surface needed to produce it:</p>
 <div class="data-box">
   <span class="emphasis">
-    Surface of land needed to produce {{cropObject.name}}:
+    Surface of land needed to produce <app-object-link [epObject]="cropObject"></app-object-link>:
   </span>
   1 / {{cropObject.details.objectYield / 10 | number:'.2-3'}} =
   <span class="emphasis">
     {{cropObjectSurfaceNeeded | number:'.2-2'}} m²
   </span>
 </div>
-<p>Then, we multiply by the <span class="emphasis">Equivalence Factor</span> for crop land, provided by the
-  Global Footprint Network:</p>
+<p>Then, we multiply by the <span class="emphasis">Equivalence Factor</span> for crop land to obtain
+  its ecological footprint.</p>
+<p>To know more about what an equivalence factor and an ecological footprint are, see
+  <span *ngIf="isZoomed">the <app-object-link [epObject]="null"></app-object-link>.</span>
+  <span *ngIf="!isZoomed">above.</span>
+</p>
+<p>The equivalence factor for crop land is provided by the Global Footprint Network:</p>
 <div class="data-box">
   <span class="emphasis">
     Equivalence Factor for crop land: {{equivalenceFactorForCropLand | number:'.2-2'}}
@@ -37,7 +48,7 @@
 <p>This gives us the ecological footprint of the object:</p>
 <div class="data-box">
   <span class="emphasis">
-    Ecological footprint for {{cropObject.name}}:
+    Ecological footprint for <app-object-link [epObject]="cropObject"></app-object-link>:
   </span>
   {{equivalenceFactorForCropLand | number:'.2-2'}} x {{cropObjectSurfaceNeeded | number:'.2-2'}} =
   <span class="emphasis">
@@ -48,7 +59,7 @@
   square meter computed above:</p>
 <div class="data-box data-box-result">
   <span class="emphasis">
-    Ecological price for {{cropObject.name}}:
+    Ecological price for <app-object-link [epObject]="cropObject"></app-object-link>:
   </span>
   {{cropObject.ef * 10000 | number:'.2-2'}} x {{ globalSquareMeterPrice.value | number:'.2-3'}} =
   <span class="emphasis">

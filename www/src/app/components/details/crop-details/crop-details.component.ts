@@ -12,6 +12,7 @@ import { ObjectService } from '../../../services/object/object.service';
 })
 export class CropDetailsComponent implements OnInit {
   @Input() cropObject: EpObject<CropObject>;
+  @Input() isZoomed: boolean;
 
   equivalenceFactorForCropLand: number;
   cropObjectSurfaceNeeded: number;

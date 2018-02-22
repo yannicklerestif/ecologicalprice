@@ -40,6 +40,7 @@ import { GlobalDetailsComponent } from './components/details/global-details/glob
 import { CropDetailsComponent } from './components/details/crop-details/crop-details.component';
 import { LivestockDetailsComponent } from './components/details/livestock-details/livestock-details.component';
 import { CompoundDetailsComponent } from './components/details/compound-details/compound-details.component';
+import { ObjectLinkComponent } from './components/object-link/object-link.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { CompoundDetailsComponent } from './components/details/compound-details/
     CropDetailsComponent,
     LivestockDetailsComponent,
     CompoundDetailsComponent,
+    ObjectLinkComponent,
   ],
   imports: [
     // core / angular

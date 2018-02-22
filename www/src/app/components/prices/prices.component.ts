@@ -53,7 +53,7 @@ export class PricesComponent implements OnInit {
         pricedObjects[epObject.objectType] = pricedObjectOfType;
       }
       const objectPrice: Price = this.pricerService.computePrice(epObject);
-      pricedObjectOfType.push(new PricedObject(epObject.name, objectPrice));
+      pricedObjectOfType.push(new PricedObject(epObject, objectPrice));
     });
     this.pricedObjects = pricedObjects;
   }

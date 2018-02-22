@@ -11,6 +11,7 @@ import { PricerService } from '../../../services/pricer.service';
 })
 export class Co2DetailsComponent implements OnInit {
   @Input() co2Object: EpObject<Co2Object>;
+  @Input() isZoomed: boolean;
 
   co2Footprint: number;
   globalSquareMeterPrice: Price;

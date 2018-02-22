@@ -16,7 +16,7 @@ import { ObjectType } from '../../model/objects/object-type';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
-  isZoomMode: boolean;
+  zoomedObject: EpObject<ObjectDetails>;
   co2Object: EpObject<Co2Object>;
   cropObject: EpObject<CropObject>;
   livestockObject: EpObject<LivestockObject>;
@@ -31,20 +31,26 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.scrollHelperService.scrolltopIfNecessary(this.transition);
     const objectId = this.transition.params().objectId;
-    this.isZoomMode = !!objectId;
 
     // in zoom mode we only set the zoomed object
-    if (this.isZoomMode) {
-      const zoomed: EpObject<ObjectDetails> = this.objectService.getObject(objectId);
-      if (!zoomed) throw new Error(`Couldn't find an object for objectId: ${objectId}`);
-      this.co2Object = zoomed.objectType === ObjectType.Co2 && (zoomed as EpObject<Co2Object>);
-      this.cropObject = zoomed.objectType === ObjectType.Crop && (zoomed as EpObject<CropObject>);
+    if (objectId != null) {
+      this.zoomedObject = this.objectService.getObject(objectId);
+      if (!this.zoomedObject) throw new Error(`Couldn't find an object for objectId: ${objectId}`);
+      this.co2Object =
+        this.zoomedObject.objectType === ObjectType.Co2 &&
+        (this.zoomedObject as EpObject<Co2Object>);
+      this.cropObject =
+        this.zoomedObject.objectType === ObjectType.Crop &&
+        (this.zoomedObject as EpObject<CropObject>);
       this.livestockObject =
-        zoomed.objectType === ObjectType.Livestock && (zoomed as EpObject<LivestockObject>);
+        this.zoomedObject.objectType === ObjectType.Livestock &&
+        (this.zoomedObject as EpObject<LivestockObject>);
       this.compoundObject =
-        zoomed.objectType === ObjectType.Compound && (zoomed as EpObject<CompoundObject>);
+        this.zoomedObject.objectType === ObjectType.Compound &&
+        (this.zoomedObject as EpObject<CompoundObject>);
     } else {
       // in non-zoomed mode objects are choosen randomly
+      this.zoomedObject = null;
       this.co2Object = this.objectService.getCo2Objects()[0];
       this.cropObject = this.objectService.getCropObjects()[0];
       this.livestockObject = this.objectService.getLivestockObjects()[0];

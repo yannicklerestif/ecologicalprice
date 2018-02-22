@@ -24,6 +24,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private transition: Transition
   ) {}
 
+  public isDetailsTabActive: boolean;
+
   public countries: Country[];
 
   public currencies: CurrencyOption[];
@@ -79,10 +81,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     getSelectedCurrencyCodeFromTransition(this.transition);
 
+    const updateDetailsButtonFromTransition = (transition: Transition) => {
+      this.isDetailsTabActive = transition.to().name === 'root.prices.details';
+    };
+
+    updateDetailsButtonFromTransition(this.transition);
+
     this.unregisterTransitionHook = this.transitionService.onFinish(
       {},
       (transition: Transition) => {
         getSelectedCurrencyCodeFromTransition(transition);
+        updateDetailsButtonFromTransition(transition);
       }
     );
   }

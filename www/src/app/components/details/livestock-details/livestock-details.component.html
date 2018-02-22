@@ -1,9 +1,20 @@
-<h2>Prices Of Livestock Objects</h2>
+<h2 *ngIf="!isZoomed">Prices Of Livestock Objects</h2>
+<p *ngIf="isZoomed">
+  <app-object-link [epObject]="livestockObject"></app-object-link>
+  is a <span class="emphasis">Livestock Object</span>.
+</p>
 <p>The ecological price of livestock objects depends on the land surface needed to grow the products
   needed to feed them.</p>
+<p *ngIf="!isZoomed">To illustrate how the prices for livestock objects are computed, we will use the example
+  of <app-object-link [epObject]="livestockObject"></app-object-link>.</p>
 <p>The Global Footprint Network provides the total ecological footprint and the total quantity
   produced for livestock objects.</p>
-<p>For example, for <span class="emphasis">{{livestockObject.name}}</span>:</p>
+<p>To know more about what an ecological footprint is, see
+  <span *ngIf="isZoomed">the <app-object-link [epObject]="null"></app-object-link>.</span>
+  <span *ngIf="!isZoomed">above.</span>
+</p>
+<p>For <app-object-link [epObject]="livestockObject"></app-object-link>, the total quantity of live animal
+  produced and total ecological footprint are:</p>
 <div class="data-box">
   <span class="emphasis">
     Total quantity produced: {{livestockObject.details.totalProduced | number}} tons <br>
@@ -12,10 +23,10 @@
     Total ecological footprint: {{livestockObject.details.totalEcologicalFootprint | number}} gha <br>
   </span>
 </div>
-<p>We can then compute the ecological footprint necessary to produce 1 kg:</p>
+<p>We can then compute the ecological footprint per kg of live animal:</p>
 <div class="data-box">
   <span class="emphasis">
-    Ecological footprint for 1 kg:
+    Ecological footprint for 1 kg of live animal:
   </span>
   {{livestockObject.details.totalEcologicalFootprint | number}} / {{livestockObject.details.totalProduced |
   number}}
@@ -24,19 +35,19 @@
     {{livestockObjectFootprint1Kg * 10000 | number:'.2-2'}} gm² <br>
   </span>
 </div>
-<p>This value is the ecological footprint for 1 kg of raw product, but we must account for losses when
-  transforming it. To compute the ecological price of the final product, we must divide by the ratio
-  between transformed product and raw product. For <span class="emphasis">{{livestockObject.name}}</span>,
+<p>This value is the ecological footprint for 1 kg of live animal, but we must account for losses when
+  transforming it. To compute the ecological price of the final product, we must divide by the percentage
+  of the live animal weight that remains after transformation. For <app-object-link [epObject]="livestockObject"></app-object-link>,
   this value is:</p>
 <div class="data-box">
   <span class="emphasis">
-    Percentage of raw product remaining after transformation: {{livestockObject.details.retailCutPercent * 100}} %<br>
+    Percentage of live animal remaining after transformation: {{livestockObject.details.retailCutPercent * 100}} %<br>
   </span>
 </div>
 <p>We can now compute the ecological footprint of the object:</p>
 <div class="data-box">
   <span class="emphasis">
-    Ecological footprint for {{livestockObject.name}}:
+    Ecological footprint for <app-object-link [epObject]="livestockObject"></app-object-link>:
   </span>
   {{livestockObjectFootprint1Kg * 10000 | number:'.2-2'}}
   / {{livestockObject.details.retailCutPercent | number:'.2-2'}} =
@@ -48,7 +59,7 @@
   square meter computed above:</p>
 <div class="data-box data-box-result">
   <span class="emphasis">
-    Ecological price for {{livestockObject.name}}:
+    Ecological price for <app-object-link [epObject]="livestockObject"></app-object-link>:
   </span>
   {{livestockObject.ef * 10000 | number:'.2-2'}} x {{ globalSquareMeterPrice.value | number:'.2-3'}} =
   <span class="emphasis">

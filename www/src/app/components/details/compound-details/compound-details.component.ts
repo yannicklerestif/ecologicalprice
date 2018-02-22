@@ -14,6 +14,7 @@ import { CompoundObject } from '../../../model/objects/compound-object';
 })
 export class CompoundDetailsComponent implements OnInit {
   @Input() compoundObject: EpObject<CompoundObject>;
+  @Input() isZoomed: boolean;
 
   constructor(private objectService: ObjectService, private pricerService: PricerService) {}
 

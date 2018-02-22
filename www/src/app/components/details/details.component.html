@@ -1,11 +1,20 @@
-<h1>Details</h1>
+<h1 *ngIf="zoomedObject">How Was The Ecological Price For
+  <app-object-link [epObject]="zoomedObject"></app-object-link>
+  Computed?
+</h1>
+<h1 *ngIf="!zoomedObject">How Are Ecological Prices Computed?
+</h1>
 
-<app-global-details *ngIf="!isZoomMode"></app-global-details>
+<app-global-details *ngIf="!zoomedObject"></app-global-details>
 
-<app-co2-details *ngIf="co2Object" [co2Object]="co2Object"></app-co2-details>
+<app-co2-details *ngIf="co2Object" [co2Object]="co2Object"
+                 [isZoomed]="!!zoomedObject"></app-co2-details>
 
-<app-crop-details *ngIf="cropObject" [cropObject]="cropObject"></app-crop-details>
+<app-crop-details *ngIf="cropObject" [cropObject]="cropObject"
+                  [isZoomed]="!!zoomedObject"></app-crop-details>
 
-<app-livestock-details *ngIf="livestockObject" [livestockObject]="livestockObject"></app-livestock-details>
+<app-livestock-details *ngIf="livestockObject" [livestockObject]="livestockObject"
+                       [isZoomed]="!!zoomedObject"></app-livestock-details>
 
-<app-compound-details *ngIf="compoundObject" [compoundObject]="compoundObject"></app-compound-details>
+<app-compound-details *ngIf="compoundObject" [compoundObject]="compoundObject"
+                      [isZoomed]="!!zoomedObject"></app-compound-details>

@@ -1,23 +1,33 @@
-<h2>Prices Of CO2 Objects</h2>
-<p>The ecological price of CO2 objects, by definition, only depends on the CO2 emitted to create them.
-  The ecological footprint, in global hectares, of a CO2 object, is computed by multiplying its CO2 cost
+<h2 *ngIf="!isZoomed">Prices Of CO2 Objects</h2>
+<p *ngIf="isZoomed">
+  <app-object-link [epObject]="co2Object"></app-object-link>
+  is a <span class="emphasis">CO2 Object</span>.
+</p>
+<p>The ecological price of CO2 objects, by definition, only depends on the CO2 emitted to create them.</p>
+<p *ngIf="!isZoomed">To illustrate how the prices for CO2 objects are computed, we will use the example
+  of <app-object-link [epObject]="co2Object"></app-object-link>.</p>
+<p>The ecological footprint, in global square meters, of a CO2 object, is computed by multiplying its CO2 cost
   by the ecological footprint of CO2 emissions.</p>
+<p>To know more about what a global square meter is, see
+  <span *ngIf="isZoomed">the <app-object-link [epObject]="null"></app-object-link>.</span>
+  <span *ngIf="!isZoomed">above.</span>
+</p>
 <p>The ecological footprint of CO2 emissions is computed by the Global Footprint Network:</p>
 <div class="data-box">
   <span class="emphasis">
     CO2 ecological footprint: {{co2Footprint * 10000}} gm² / kg
   </span>
 </div>
-<p>Then, for example for the CO2 object <span class="emphasis">{{co2Object.name}}</span>:</p>
+<p>The CO2 emissions for <app-object-link [epObject]="co2Object"></app-object-link> are:</p>
 <div class="data-box">
   <span class="emphasis">
-    CO2 emissions for {{co2Object.name}}: {{co2Object.details.co2Cost | number:'.2-2'}} kg
+    CO2 emissions for <app-object-link [epObject]="co2Object"></app-object-link>: {{co2Object.details.co2Cost | number:'.2-2'}} kg
   </span>
 </div>
-<p>The ecological footprint is then the following:</p>
+<p>We can then compute the ecological footprint:</p>
 <div class="data-box">
   <span class="emphasis">
-    Ecological footprint for {{co2Object.name}}:
+    Ecological footprint for <app-object-link [epObject]="co2Object"></app-object-link>:
   </span>
   {{co2Footprint * 10000}} x {{co2Object.details.co2Cost | number:'.2-2'}} =
   <span class="emphasis">
@@ -25,7 +35,7 @@
   </span>
 </div>
 <p>We can then compute the ecological price by multiplying the ecological price by the price of a global square
-  meter computed above:</p>
+  meter computed in the <app-object-link [epObject]="null"></app-object-link>:</p>
 <div class="data-box data-box-result">
   <span class="emphasis">
     Ecological price for {{co2Object.name}}:
@@ -35,5 +45,3 @@
     {{co2ObjectPrice | ecologicalPrice}}
   </span>
 </div>
-
-
