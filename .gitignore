@@ -6,6 +6,8 @@ dist
 
 # passwords etc
 /api/mysql_password
+/api/contact_email
 /api/.htpasswd
+
 /python/data_scripts/objects_efs/admin_password
 

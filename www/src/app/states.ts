@@ -16,6 +16,7 @@ import { CountryService } from './services/country.service';
 import { ViewportForwarderComponent } from './components/viewport-forwarder/viewport-forwarder.component';
 import { CurrencyService } from './services/currency.service';
 import { ObjectService } from './services/object/object.service';
+import { ContactComponent } from './components/contact/contact.component';
 
 export function uiRouterConfigFn(router: UIRouter, injector: Injector) {
   router.urlService.rules.otherwise({ state: 'root.prices.home' });
@@ -163,5 +164,11 @@ export const states: Ng2StateDeclaration[] = [
     },
     url: '/details/:objectId',
     component: DetailsComponent,
+  },
+  // TODO shouldn't be under root.prices
+  {
+    name: 'root.prices.contact',
+    url: '/contact',
+    component: ContactComponent,
   },
 ];

@@ -1,4 +1,4 @@
-<files mysql_password>
+<FilesMatch "mysql_password|contact_email">
 order allow,deny
 deny from all
-</files>
+</FilesMatch>

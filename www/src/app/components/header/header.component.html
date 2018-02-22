@@ -1,5 +1,5 @@
 <div class="header inverted-text-colors" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
-  <div class="header-nav-inner-element" fxLayout="row" fxLayoutGap="10px">
+  <div class="header-nav-inner-element" fxLayout="row nowrap" fxLayoutGap="10px">
     <a id="home-button" class="white-button-overlay" mat-button [disableRipple]="true"
        uiSref="root.prices.home" uiSrefActive="active">
       <mat-icon>home</mat-icon>
@@ -9,6 +9,8 @@
     <a class="white-button-overlay" mat-button [disableRipple]="true"
        uiSref="root.prices.details" [uiParams]={objectId:null}
        [ngClass]="{'active': isDetailsTabActive}">Details</a>
+    <a class="white-button-overlay" mat-button [disableRipple]="true"
+       uiSref="root.prices.contact" uiSrefActive="active">Contact</a>
   </div>
   <div class="filler" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
     <span class="filler"></span>

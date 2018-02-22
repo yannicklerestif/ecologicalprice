@@ -5,16 +5,19 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UIRouterModule } from '@uirouter/angular';
 import { CurrencyPipe } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // angular material
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
 
 // app
 import { CountryService } from './services/country.service';
@@ -41,6 +44,9 @@ import { CropDetailsComponent } from './components/details/crop-details/crop-det
 import { LivestockDetailsComponent } from './components/details/livestock-details/livestock-details.component';
 import { CompoundDetailsComponent } from './components/details/compound-details/compound-details.component';
 import { ObjectLinkComponent } from './components/object-link/object-link.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ContactService } from './services/contact.service';
+import { SimpleDialogComponent } from './components/simple-dialog/simple-dialog.component';
 
 @NgModule({
   declarations: [
@@ -58,12 +64,16 @@ import { ObjectLinkComponent } from './components/object-link/object-link.compon
     LivestockDetailsComponent,
     CompoundDetailsComponent,
     ObjectLinkComponent,
+    ContactComponent,
+    SimpleDialogComponent,
   ],
+  entryComponents: [SimpleDialogComponent],
   imports: [
     // core / angular
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     UIRouterModule.forRoot({
       states: states,
       useHash: true,
@@ -71,15 +81,22 @@ import { ObjectLinkComponent } from './components/object-link/object-link.compon
     }),
     // material
     FlexLayoutModule,
-    MatToolbarModule,
-    MatButtonToggleModule,
     MatButtonModule,
-    MatSelectModule,
-    MatTabsModule,
+    MatButtonToggleModule,
+    MatDialogModule,
     MatIconModule,
+    MatInputModule,
+    MatSelectModule,
     MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: APIInterceptor,
+      multi: true,
+    },
     CurrencyPipe,
     CountryService,
     CountryRepositoryService,
@@ -90,11 +107,7 @@ import { ObjectLinkComponent } from './components/object-link/object-link.compon
     PricerService,
     ScrollHelperService,
     EcologicalPricePipe,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: APIInterceptor,
-      multi: true,
-    },
+    ContactService,
   ],
   bootstrap: [AppComponent],
 })
