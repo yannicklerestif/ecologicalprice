@@ -47,6 +47,7 @@ import { ObjectLinkComponent } from './components/object-link/object-link.compon
 import { ContactComponent } from './components/contact/contact.component';
 import { ContactService } from './services/contact.service';
 import { SimpleDialogComponent } from './components/simple-dialog/simple-dialog.component';
+import { GlobalPageOrAboveComponent } from './components/details/global-page-or-above/global-page-or-above.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { SimpleDialogComponent } from './components/simple-dialog/simple-dialog.
     ObjectLinkComponent,
     ContactComponent,
     SimpleDialogComponent,
+    GlobalPageOrAboveComponent,
   ],
   entryComponents: [SimpleDialogComponent],
   imports: [

@@ -10,8 +10,7 @@
 <p>The Global Footprint Network provides the total ecological footprint and the total quantity
   produced for livestock objects.</p>
 <p>To know more about what an ecological footprint is, see
-  <span *ngIf="isZoomed">the <app-object-link [epObject]="null"></app-object-link>.</span>
-  <span *ngIf="!isZoomed">above.</span>
+  <app-global-page-or-above [isZoomed]="isZoomed"></app-global-page-or-above>.
 </p>
 <p>For <app-object-link [epObject]="livestockObject"></app-object-link>, the total quantity of live animal
   produced and total ecological footprint are:</p>
@@ -56,7 +55,9 @@
   </span>
 </div>
 <p>We can then compute the ecological price by multiplying the ecological price by the price of a global
-  square meter computed above:</p>
+  square meter ({{globalSquareMeterPrice | ecologicalPrice:'.2-3'}}) computed
+  <span *ngIf="isZoomed"> in </span>
+  <app-global-page-or-above [isZoomed]="isZoomed"></app-global-page-or-above>:</p>
 <div class="data-box data-box-result">
   <span class="emphasis">
     Ecological price for <app-object-link [epObject]="livestockObject"></app-object-link>:

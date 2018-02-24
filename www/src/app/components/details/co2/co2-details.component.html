@@ -8,9 +8,8 @@
   of <app-object-link [epObject]="co2Object"></app-object-link>.</p>
 <p>The ecological footprint, in global square meters, of a CO2 object, is computed by multiplying its CO2 cost
   by the ecological footprint of CO2 emissions.</p>
-<p>To know more about what a global square meter is, see
-  <span *ngIf="isZoomed">the <app-object-link [epObject]="null"></app-object-link>.</span>
-  <span *ngIf="!isZoomed">above.</span>
+<p>To know more about what an ecological footprint or a global square meter is, see
+  <app-global-page-or-above [isZoomed]="isZoomed"></app-global-page-or-above>.
 </p>
 <p>The ecological footprint of CO2 emissions is computed by the Global Footprint Network:</p>
 <div class="data-box">
@@ -35,7 +34,9 @@
   </span>
 </div>
 <p>We can then compute the ecological price by multiplying the ecological price by the price of a global square
-  meter computed in the <app-object-link [epObject]="null"></app-object-link>:</p>
+  meter ({{globalSquareMeterPrice | ecologicalPrice:'.2-3'}}) computed
+  <span *ngIf="isZoomed"> in </span>
+  <app-global-page-or-above [isZoomed]="isZoomed"></app-global-page-or-above>:</p>
 <div class="data-box data-box-result">
   <span class="emphasis">
     Ecological price for {{co2Object.name}}:

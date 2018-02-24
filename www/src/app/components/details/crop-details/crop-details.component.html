@@ -9,7 +9,7 @@
 <p>The surface of land needed to produce crop objects is obtained by dividing the weight of the object by the average
   yield of crops for this object. The yield of crops for crop object is provided by
   <a href="http://www.fao.org/faostat/en/#data/QC">the FAO</a>.
-  For <span class="emphasis">{{cropObject.name}}</span>, the yield is:
+  For <app-object-link [epObject]="cropObject"></app-object-link>, the yield is:
 </p>
 <div class="data-box">
   <span class="emphasis">
@@ -36,8 +36,7 @@
 <p>Then, we multiply by the <span class="emphasis">Equivalence Factor</span> for crop land to obtain
   its ecological footprint.</p>
 <p>To know more about what an equivalence factor and an ecological footprint are, see
-  <span *ngIf="isZoomed">the <app-object-link [epObject]="null"></app-object-link>.</span>
-  <span *ngIf="!isZoomed">above.</span>
+  <app-global-page-or-above [isZoomed]="isZoomed"></app-global-page-or-above>.
 </p>
 <p>The equivalence factor for crop land is provided by the Global Footprint Network:</p>
 <div class="data-box">
@@ -56,7 +55,10 @@
   </span>
 </div>
 <p>We can then compute the ecological price by multiplying the ecological price by the price of a global
-  square meter computed above:</p>
+  square meter ({{globalSquareMeterPrice | ecologicalPrice:'.2-3'}}) computed
+  <span *ngIf="isZoomed"> in </span>
+  <app-global-page-or-above [isZoomed]="isZoomed"></app-global-page-or-above>:
+</p>
 <div class="data-box data-box-result">
   <span class="emphasis">
     Ecological price for <app-object-link [epObject]="cropObject"></app-object-link>:
