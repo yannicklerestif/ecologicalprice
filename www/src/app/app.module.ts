@@ -78,7 +78,7 @@ import { GlobalPageOrAboveComponent } from './components/details/global-page-or-
     ReactiveFormsModule,
     UIRouterModule.forRoot({
       states: states,
-      useHash: true,
+      useHash: false,
       config: uiRouterConfigFn,
     }),
     // material

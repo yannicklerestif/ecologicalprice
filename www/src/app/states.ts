@@ -92,7 +92,7 @@ export function currencyResolveFn(
 export const states: Ng2StateDeclaration[] = [
   {
     name: 'root',
-    url: '',
+    url: '/',
     abstract: true,
     // FIXME bundle all this resolves
     resolve: [
