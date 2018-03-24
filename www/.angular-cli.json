@@ -10,7 +10,8 @@
       "assets": [
         "assets",
         "favicon.png",
-        ".htaccess"
+        ".htaccess",
+        "sitemap.txt"
       ],
       "index": "index.html",
       "main": "main.ts",

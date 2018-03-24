@@ -1,0 +1,3 @@
+https://ecologicalprice.org/#prices/home?country=US&currency=AUTO
+https://ecologicalprice.org/#prices/summary?country=US&currency=AUTO
+https://ecologicalprice.org/#prices/details?country=US&currency=AUTO
