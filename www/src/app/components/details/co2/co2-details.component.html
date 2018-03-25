@@ -1,26 +1,26 @@
-<h2 *ngIf="!isZoomed">Prices Of CO2 Objects</h2>
+<h2 *ngIf="!isZoomed">Prices Of CO<sub>2</sub> Objects</h2>
 <p *ngIf="isZoomed">
   <app-object-link [epObject]="co2Object"></app-object-link>
-  is a <span class="emphasis">CO2 Object</span>.
+  is a <span class="emphasis">CO<sub>2</sub> Object</span>.
 </p>
-<p>The ecological price of CO2 objects, by definition, only depends on the CO2 emitted to create them.</p>
-<p *ngIf="!isZoomed">To illustrate how the prices for CO2 objects are computed, we will use the example
+<p>The ecological price of CO<sub>2</sub> objects, by definition, only depends on the CO<sub>2</sub> emitted to create them.</p>
+<p *ngIf="!isZoomed">To illustrate how the prices for CO<sub>2</sub> objects are computed, we will use the example
   of <app-object-link [epObject]="co2Object"></app-object-link>.</p>
-<p>The ecological footprint, in global square meters, of a CO2 object, is computed by multiplying its CO2 cost
-  by the ecological footprint of CO2 emissions.</p>
+<p>The ecological footprint, in global square meters, of a CO<sub>2</sub> object, is computed by multiplying its CO<sub>2</sub> cost
+  by the ecological footprint of CO<sub>2</sub> emissions.</p>
 <p>To know more about what an ecological footprint or a global square meter is, see
   <app-global-page-or-above [isZoomed]="isZoomed"></app-global-page-or-above>.
 </p>
-<p>The ecological footprint of CO2 emissions is computed by the Global Footprint Network:</p>
+<p>The ecological footprint of CO<sub>2</sub> emissions is computed by the Global Footprint Network:</p>
 <div class="data-box">
   <span class="emphasis">
-    CO2 ecological footprint: {{co2Footprint * 10000}} gm² / kg
+    CO<sub>2</sub> ecological footprint: {{co2Footprint * 10000}} gm² / kg
   </span>
 </div>
-<p>The CO2 emissions for <app-object-link [epObject]="co2Object"></app-object-link> are:</p>
+<p>The CO<sub>2</sub> emissions for <app-object-link [epObject]="co2Object"></app-object-link> are:</p>
 <div class="data-box">
   <span class="emphasis">
-    CO2 emissions for <app-object-link [epObject]="co2Object"></app-object-link>: {{co2Object.details.co2Cost | number:'.2-2'}} kg
+    CO<sub>2</sub> emissions for <app-object-link [epObject]="co2Object"></app-object-link>: {{co2Object.details.co2Cost | number:'.2-2'}} kg
   </span>
 </div>
 <p>We can then compute the ecological footprint:</p>

@@ -3,11 +3,12 @@
   <app-object-link [epObject]="cropObject"></app-object-link>
   is a <span class="emphasis">Crop Object</span>.
 </p>
-<p>The ecological price of crop objects, by definition, only depends on the surface of land needed to produce them.</p>
-<p *ngIf="!isZoomed">To illustrate how the prices for CO2 objects are computed, we will use the example
+<p>The ecological price of crop objects, by definition, only depends on the surface of land needed to produce them.
+  Right now transport, fertilizers or agricultural equipment are not taken into account.</p>
+<p *ngIf="!isZoomed">To illustrate how the prices for crop objects are computed, we will use the example
   of <app-object-link [epObject]="cropObject"></app-object-link>.</p>
 <p>The surface of land needed to produce crop objects is obtained by dividing the weight of the object by the average
-  yield of crops for this object. The yield of crops for crop object is provided by
+  yield of crops for this object. The yield of crops for crop object are world averages as provided by
   <a href="http://www.fao.org/faostat/en/#data/QC">the FAO</a>.
   For <app-object-link [epObject]="cropObject"></app-object-link>, the yield is:
 </p>
