@@ -9,6 +9,7 @@ import { CompoundObject } from '../../model/objects/compound-object';
 import { ScrollHelperService } from '../../services/scroll-helper.service';
 import { ObjectDetails } from '../../model/objects/object-details';
 import { ObjectType } from '../../model/objects/object-type';
+import { Constants } from '../../constants';
 
 @Component({
   selector: 'app-details',
@@ -30,7 +31,10 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     this.scrollHelperService.scrolltopIfNecessary(this.transition);
+
     const objectId = this.transition.params().objectId;
+
+    let pageTitle: string;
 
     // in zoom mode we only set the zoomed object
     if (objectId != null) {
@@ -48,6 +52,7 @@ export class DetailsComponent implements OnInit {
       this.compoundObject =
         this.zoomedObject.objectType === ObjectType.Compound &&
         (this.zoomedObject as EpObject<CompoundObject>);
+      pageTitle = 'Ecological Price of ' + this.zoomedObject.name;
     } else {
       // in non-zoomed mode objects are choosen randomly
       this.zoomedObject = null;
@@ -55,6 +60,8 @@ export class DetailsComponent implements OnInit {
       this.cropObject = this.objectService.getCropObjects()[0];
       this.livestockObject = this.objectService.getLivestockObjects()[0];
       this.compoundObject = this.objectService.getCompoundObjects()[2];
+      pageTitle = Constants.applicationTitlePrefix + 'Prices Details';
     }
+    document.title = pageTitle;
   }
 }

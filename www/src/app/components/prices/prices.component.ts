@@ -9,6 +9,7 @@ import { Price } from '../../model/price';
 import { ObjectType } from '../../model/objects/object-type';
 import { ObjectDetails } from '../../model/objects/object-details';
 import { ScrollHelperService } from '../../services/scroll-helper.service';
+import { Constants } from '../../constants';
 import { Transition } from '@uirouter/core';
 
 @Component({
@@ -33,6 +34,7 @@ export class PricesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    document.title = Constants.applicationTitlePrefix + 'Prices Summary';
     this.scrollHelperService.scrolltopIfNecessary(this.transition);
     const selectedCountry = this.countryService.getCountry(
       this.countryService.getSelectedCountryCode().getValue()

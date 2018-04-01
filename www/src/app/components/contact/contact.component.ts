@@ -12,6 +12,7 @@ import { SimpleDialogComponent } from '../simple-dialog/simple-dialog.component'
 import { MatDialog } from '@angular/material/dialog';
 import { SimpleDialogInput } from '../simple-dialog/simple-dialog-input';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Constants } from '../../constants';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -36,6 +37,7 @@ export class ContactComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    document.title = Constants.applicationTitlePrefix + 'Contact';
     this.createForm();
   }
 
